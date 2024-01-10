@@ -1,16 +1,24 @@
-import { Express } from 'express-serve-static-core';
+import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import dotenv from "dotenv";
-import { register } from './controllers/auth';
+import dotenv from 'dotenv';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import { register } from './controllers/auth.js';
+import authRoutes from './routes/authRouter.js';
+import userRoutes from './routes/users.js'
 
 dotenv.config();
 
-const app = Express();
+const app = express();
+app.use(express.json());
 app.use(cors());
+app.use(helmet());
+app.use(morgan());
 
-//Routing Files
-
+//Routes
+app.use('/authRouter', authRoutes)
+app.use('/users', userRoutes)
 
 // Mongoose SetUp
 // Checking to see if there is any error connecting to the mongoDB using the PORT

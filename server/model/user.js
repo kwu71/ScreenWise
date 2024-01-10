@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 // Creating a schema for mongoDB, this outlines the data and defines each specific piece of data's needs.
 const userSchema = new mongoose.Schema;(
@@ -21,16 +21,18 @@ const userSchema = new mongoose.Schema;(
     },
     timeSpent: {
       type: Number,
+      default: 0,
     },
     socialMedia: {
       type: String,
-      default: "",
+      default: '',
     },
     bio: {
       type: String,
-      default: "",
+      default: '',
+      max: 255,
     },
 });
 
 const User = mongoose.model("User", userSchema);
-module.exports = User;
+export default User;
