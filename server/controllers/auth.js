@@ -14,8 +14,8 @@ export const register = async (req, res) => {
       username,
       password,
       friends,
+      friendRequests,
       timeSpent,
-      socialMedia,
       bio
     } = req.body;
 
@@ -29,10 +29,10 @@ export const register = async (req, res) => {
       username,
       password: passwordHash,
       friends,
+      friendRequests,
       timeSpent: 0,
-      socialMedia,
       bio
-    })
+    });
     
     //Sends the user a status of 201 when the newUser is successfully created and added into mongoDB
     //Then converts it to a json file so that the frontend can received and display the information that is needed
@@ -67,4 +67,4 @@ export const login = async (req, res) => {
   } catch (err) {
     res.status(500).json( { error: err.message } );
   }
-}
+};

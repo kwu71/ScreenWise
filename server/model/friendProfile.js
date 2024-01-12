@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Creating a schema for mongoDB, this outlines the data and defines each specific piece of data's needs.
-const userSchema = new mongoose.Schema(
+const friendProfileSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -10,19 +10,6 @@ const userSchema = new mongoose.Schema(
       min: 2,
       max: 50,
     },
-    password: {
-      type: String,
-      required: true,
-      min: 8,
-    },
-    friends: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    }],
-    friendRequests: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    }],
     timeSpentDaily: [{
       date: {
         type: Date,
@@ -40,5 +27,5 @@ const userSchema = new mongoose.Schema(
     },
 });
 
-const User = mongoose.model("User", userSchema);
-export default User;
+const friendProfile = mongoose.model("friendProfile", userSchema);
+export default friendProfile;
