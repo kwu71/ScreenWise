@@ -6,10 +6,6 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-// Import middleware and routes
-import { register } from './controllers/auth.js';
-import authRoutes from './routes/authRouter.js';
-
 dotenv.config();
 
 const app = express();
@@ -20,7 +16,6 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 //Routes
-app.use('/auth', authRoutes)
 
 // Mongoose SetUp
 // Checking to see if there is any error connecting to the mongoDB using the PORT
