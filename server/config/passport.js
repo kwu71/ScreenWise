@@ -6,7 +6,18 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Using both passport and another 
+// Using both the passport library and passport-google-oauth20 library
+// The passport-google-oauth20 allows the use of a Google authentication strategy 
+// which authenticates users using a Google account and OAuth 2.0 tokens
+// This strategy requires us to verify the callback, which receives an accessToken
+// Along with an optional refreshToken. Then further giving us the profile of the authenticated user
+// Then use some general code given in the documentation, replacing things as needed
+// We then have an async function, then within that function creating a newUser with the information
+// that is needed from the google profiles
+// we then use the .findOne method provided by mongoose to check if the user is in the mongoDB database
+// if yes then return cb otherwise create the user and then return the cb
+// serializeUser is then used to store the user ID for the session 
+// deserializeUser is then used to retrieve the data based on the user ID session
 
     passport.use(
       new GoogleStrategy(
@@ -17,6 +28,7 @@ dotenv.config();
           scope: ['profile'],
         },
         async(accessToken, refreshToken, profile, cb) => {
+          
           const newUser = {
             googleId: profile.id,
             username: profile.displayName,
