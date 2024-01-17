@@ -1,25 +1,14 @@
 import './styles/login.css'
 
-function login() {
-  return (
-    <div id="loginContainer">
-      <form id="loginForm">
-        
-        <h2>Sign In</h2>
 
-        <div>
-          <input id="email" placeholder="JohnDoe@gmail.com" />
-        </div>
-        
-        <div>
-          <input id="password" type="password" placeholder="Password" />
-        </div>
-      
-        <button id="loginBtn">Log In</button>
-        
-        <p id="needToRegister">Need an account? <a href="/register">Sign Up</a> </p>
-      
-      </form>
+
+function login() {
+
+
+  return (
+    <div>
+      <h1>Your React App</h1>
+      <a href="http://localhost:3000/auth/google">Login with Google</a>
     </div>
 
   );
