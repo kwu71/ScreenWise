@@ -4,3 +4,8 @@
   box-sizing: border-box;
   background-color: #FFFFFF;
 }
+
+body {
+  font-family: Abril Fatface;
+  height: 100vh;
+}
