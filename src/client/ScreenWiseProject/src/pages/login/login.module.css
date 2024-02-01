@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+.container {
   font-family: Abril Fatface;
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@ body {
 }
 
 .loginText {
-  font-family: Bentham;
+  font-family: Abril Fatface;
   font-size: 2rem;
   text-decoration: none;
   color: #FFFFFF;
