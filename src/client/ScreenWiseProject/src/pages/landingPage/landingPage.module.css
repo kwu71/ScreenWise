@@ -1,0 +1,112 @@
+
+.heroBackground{
+  background-color: #F7F7F7;
+  padding: 10rem 15rem 15rem 15rem;
+}
+
+.heroContainer{
+  max-width: 1180px;
+  width: 100%;
+  margin: 10rem auto 10rem auto;
+}
+
+.heroHeadingContainer{
+  text-align: center;
+}
+
+.heroH1{
+  margin-bottom: 3rem;
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+.heroP{
+  font-family: 'Bentham', serif;
+  font-size: 1.25rem;
+}
+
+.row{
+  display: flex;
+}
+
+.sectionAlterClr{
+  background-color: #F7F7F7;
+}
+
+.landingSectionBackground{
+  padding: 3rem 2rem 3rem 2rem;
+}
+
+.landingSection{
+  max-width: 1180px;
+  width: 100%;
+  margin: 3rem auto 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem 5rem;
+}
+
+.sectionText{
+  text-align: left;
+  font-family: 'Bentham', serif;
+  padding: 3rem 5rem 3rem 5rem;
+}
+
+.sectionHeader{
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+.sectionP{
+  margin: auto;
+  font-size: 2rem;
+}
+
+.imgContainer{
+  overflow: hidden;
+}
+
+.sectionImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.endingSectionBackground{
+  padding: 3rem 15rem 15rem 15rem;
+}
+
+.endingSectionContainer{
+  max-width: 1180px;
+  width: 100%;
+  margin: 10rem auto 10rem auto;
+}
+
+.endingSectionH1{
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+.footerBackground{
+  background-color: #F7F7F7;
+  padding: 3rem 2rem 3rem 2rem;
+}
+
+.footerElements{
+  max-width: 1180px;
+  width: 100%;
+  margin: 2rem auto 2rem auto;
+}
+
+.footerH1{
+  text-align: left;
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: 4rem;
+}
