@@ -3,7 +3,6 @@ import styles from './landingPage.module.css'
 function LandingPage() {
   return (
     <div>
-      
       <div class={styles.heroBackground}>
         <div class={styles.heroContainer}>
           <div class={styles.heroHeadingContainer}>
