@@ -1,13 +1,25 @@
 import styles from './landingPage.module.css'
+import GetStartedBTN from '../../component/landingNav/getStartedBTN';
 
 function LandingPage() {
   return (
+    
     <div>
+
+      <div class={styles.navBackground}>
+        <nav class={styles.navContainer}>
+          <h1 class={styles.navTitle}>ScreenWise</h1>
+          <button class={styles.navLoginBTN}><a className={styles.navLoginTextBTN} href="http://localhost:5173/login">Login</a></button>
+        </nav>
+      </div>
+
+
       <div class={styles.heroBackground}>
         <div class={styles.heroContainer}>
           <div class={styles.heroHeadingContainer}>
             <h1 class={styles.heroH1}>Imagine a community...</h1>
             <p class={styles.heroP}>Embark on a digital wellness journey with ScreenWise, an innovative app designed to transform your screen time management into a social and supportive experience. Whether you're striving for a healthier balance or simply looking for friends to help you on your journey, ScreenWise has got you covered!</p>
+            <div class={styles.heroStartBTN}><GetStartedBTN /></div>
           </div>
         </div>
       </div>
@@ -87,6 +99,7 @@ function LandingPage() {
         <div class={styles.endingSectionBackground}>
           <div class={styles.endingSectionContainer}>
             <h1 class={styles.endingSectionH1}>Start your ScreenWise journey</h1>
+            <div class={styles.endingBTN}><GetStartedBTN /></div>
           </div>
         </div>
 
