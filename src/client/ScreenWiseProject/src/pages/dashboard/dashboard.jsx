@@ -1,5 +1,5 @@
 import Navbar from '../../component/navBar/navBar';
-import styles from './navBar.module.css'
+import styles from './dashboard.module.css'
 
 
 
