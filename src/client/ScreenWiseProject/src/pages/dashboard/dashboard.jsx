@@ -1,10 +1,15 @@
+import Navbar from '../../component/navBar/navBar';
+import styles from './navBar.module.css'
 
-function login() {
+
+
+
+function Dashboard() {
 
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <div><Navbar /></div>  
     </div>
 
   );
@@ -12,4 +17,4 @@ function login() {
 
 
 
-export default login
+export default Dashboard;

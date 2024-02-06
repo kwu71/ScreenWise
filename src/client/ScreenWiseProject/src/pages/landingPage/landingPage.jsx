@@ -9,7 +9,7 @@ function LandingPage() {
       <div class={styles.navBackground}>
         <nav class={styles.navContainer}>
           <h1 class={styles.navTitle}>ScreenWise</h1>
-          <button class={styles.navLoginBTN}><a className={styles.navLoginTextBTN} href="http://localhost:5173/login">Login</a></button>
+          <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} href="http://localhost:5173/login">Login</a></button>
         </nav>
       </div>
 
