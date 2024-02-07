@@ -40,6 +40,7 @@
   transition: all 0.5s ease-in-out;
   font-family: 'Bentham', serif;
   margin: 0 1rem 0 1rem;
+  color: #FFFFFF;
 }
 
 .formBTN:hover{
