@@ -13,12 +13,23 @@
   box-shadow: 0 0px 8px 1px rgba(0,0,0,.2);
 }
 
-.formContainer{
+.inputSection{
   display: flex;
   justify-content: left;
+  flex-direction: column;
   width: 100%;
   max-width: 1180px;
   margin: auto;
+}
+
+.inputTitle{
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.formContainer{
+  margin-top: 2rem;
 }
 
 .inputContainer{
@@ -28,18 +39,20 @@
   padding: 0.5rem 1rem 0.5rem 1rem; 
   font-family: 'Bentham', serif;
   font-size: 2rem;
+  box-shadow: 3px 3px 1px 1px rgba(0,0,0,.2);
 }
 
 .formBTN{
-  padding: 0 1.5rem 0 1.5rem;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   background-color: #EE6C4D;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 0px 8px 1px rgba(0,0,0,.2);
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,.2);
   transition: all 0.5s ease-in-out;
   font-family: 'Bentham', serif;
-  margin: 0 1rem 0 1rem;
+  font-size: 1.5rem;
+  margin: auto 1rem auto 1rem;
   color: #FFFFFF;
 }
 
