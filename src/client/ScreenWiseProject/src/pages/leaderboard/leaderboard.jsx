@@ -12,6 +12,7 @@ function Leaderboard() {
         </div>
 
         <div class={styles.leaderboardTable}>
+          
           <div class={styles.leaderboardHeading}>
             <div class={styles.firstSectionHeader}>
               <p class={styles.rank}>Rank</p>
@@ -21,9 +22,19 @@ function Leaderboard() {
               <p class={styles.hours}>Hours</p>
             </div>
           </div>
-
-          <div>
-
+          
+          <div class={styles.leaderboardBody}>
+            
+            <div class={styles.leaderboardUser}>
+              <div class={styles.firstSectionHeader}>
+                <p class={styles.rankNumber}>1</p>
+                <p class={styles.friendUser}>@Username</p>
+              </div>
+              <div class={styles.secondSectionHeader}>
+                <p class={styles.friendHours}>12</p>
+              </div>
+            </div>
+          
           </div>
         </div>
     </div>
