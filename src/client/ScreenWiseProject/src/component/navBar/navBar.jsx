@@ -12,7 +12,7 @@ function Navbar() {
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Home</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Friends</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Leaderboard</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Tips Board</a></li>
+                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/tips">Tips Board</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">@username</a></li>
               </ul>
             <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} href="http://localhost:5173">Logout</a></button>
