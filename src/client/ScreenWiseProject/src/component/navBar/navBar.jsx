@@ -10,7 +10,7 @@ function Navbar() {
           <div class={styles.navContainerMainFunctions}>
               <ul class={styles.navItems}>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Home</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Friends</a></li>
+                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends">Friends</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/leaderboard">Leaderboard</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/tips">Tips Board</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">@username</a></li>
