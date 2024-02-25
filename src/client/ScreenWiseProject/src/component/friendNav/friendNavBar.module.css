@@ -1,0 +1,40 @@
+.navBackground{
+  background-color: #F7F7F7;
+  height: 91vh;
+  width: 20%;
+  float: left;
+}
+
+.navContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 91vh;
+  width: 100%;
+}
+
+.navContainerMainFunctions{
+  width: 100%;
+  text-align: center;
+}
+
+.navItems{
+  list-style: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.navItemsLi{
+  transition: all 0.5s ease-in-out;
+  padding: 1rem;
+}
+
+.navItemsLi:hover{
+  background-color: #f57b5c;
+}
+
+.navText{
+  text-decoration: none;
+  font-family: 'Bentham', serif;
+  font-size: 1.25rem;
+  color: #303965;
+}
