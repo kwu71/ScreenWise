@@ -2,7 +2,7 @@ import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
 import styles from './friends.module.css'
 
-function Friends() {
+function FriendsAll() {
   return(
     <div>
       
@@ -56,4 +56,4 @@ function Friends() {
   )
 }
 
-export default Friends;
+export default FriendsAll;

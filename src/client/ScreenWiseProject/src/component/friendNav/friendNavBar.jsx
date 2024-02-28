@@ -8,9 +8,9 @@ function FriendNavBar() {
         <nav class={styles.navContainer}>
           <div class={styles.navContainerMainFunctions}>
               <ul class={styles.navItems}>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">All Friends</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends">Pending Request</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/leaderboard">Add Friend</a></li>
+                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends-all">All Friends</a></li>
+                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends-pending">Pending Request</a></li>
+                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends-add">Add Friend</a></li>
               </ul>
           </div>
         </nav>
