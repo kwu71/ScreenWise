@@ -4,7 +4,9 @@ import Login from './pages/login/login'
 import Dashboard from './pages/dashboard/dashboard'
 import Tips from './pages/tips/tipsPage';
 import Leaderboard from './pages/leaderboard/leaderboard';
-import Friends from './pages/friends/friends';
+import FriendsAll from './pages/friends/friends';
+import FriendsPending from './pages/friends/friendsPending'
+import FriendsAdd from './pages/friends/friendsAdd';
 
 function App() {
 
@@ -18,7 +20,9 @@ function App() {
           <Route path="/dashboard" element= {<Dashboard />}/>
           <Route path="/tips" element= {<Tips />}/>
           <Route path="/leaderboard" element= {<Leaderboard />}/>
-          <Route path="/friends" element= {<Friends />}/>
+          <Route path="/friends-all" element= {<FriendsAll />}/>
+          <Route path="/friends-pending" element= {<FriendsPending />}/>
+          <Route path="/friends-add" element= {<FriendsAdd />}/>
         </Routes>
       </BrowserRouter>
     </>
