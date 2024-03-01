@@ -17,13 +17,55 @@ function FriendsPending() {
         <div class={styles.friendsBlockRight}>
           
           <div class={styles.headingBackground}>
-            <div class={styles.headingContainer}>
-              <h1>All Friends-4</h1>
+            <div class={styles.receivedContainer}>
+              <h1>Received Invites - 3</h1>
+            </div>
+          </div>
+          
+          <div class={styles.bodyBackground}>
+            <div class={styles.bodyContainer}>
+              <div class={styles.card}>
+                <div class={styles.friendCard}>
+                  <p class={styles.friendName}>@Blueemon</p>
+                </div>
+              </div>
+              <div class={styles.card}>
+                <div class={styles.friendCard}>
+                  <p class={styles.friendName}>@Blueemon</p>
+                </div>
+              </div>
+              <div class={styles.card}>
+                <div class={styles.friendCard}>
+                  <p class={styles.friendName}>@Blueemon</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div>
+          <div class={styles.headingBackground}>
+            <div class={styles.pendingContainer}>
+              <h1>Sent Invites - 3</h1>
+            </div>
+          </div>
 
+          <div class={styles.bodyBackground}>
+            <div class={styles.bodyContainer}>
+              <div class={styles.card}>
+                <div class={styles.friendCard}>
+                  <p class={styles.friendName}>@Blueemon</p>
+                </div>
+              </div>
+              <div class={styles.card}>
+                <div class={styles.friendCard}>
+                  <p class={styles.friendName}>@Blueemon</p>
+                </div>
+              </div>
+              <div class={styles.card}>
+                <div class={styles.friendCard}>
+                  <p class={styles.friendName}>@Blueemon</p>
+                </div>
+              </div>
+            </div>
           </div>
         
         </div>
