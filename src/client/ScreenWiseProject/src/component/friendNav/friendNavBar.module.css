@@ -1,14 +1,13 @@
 .navBackground{
   width: 100%;
+  background-color: #F7F7F7;
 }
-
 .navContainer{
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   width: 100%;
-  margin-top: 3rem;
 }
 
 .navContainerMainFunctions{
