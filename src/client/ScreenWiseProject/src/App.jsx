@@ -7,6 +7,7 @@ import Leaderboard from './pages/leaderboard/leaderboard';
 import FriendsAll from './pages/friends/friends';
 import FriendsPending from './pages/friends/friendsPending'
 import FriendsAdd from './pages/friends/friendsAdd';
+import UserProfile from './pages/profile/userProfile';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/friends-all" element= {<FriendsAll />}/>
           <Route path="/friends-pending" element= {<FriendsPending />}/>
           <Route path="/friends-add" element= {<FriendsAdd />}/>
+          <Route path="/profile" element= {<UserProfile />}/>
         </Routes>
       </BrowserRouter>
     </>
