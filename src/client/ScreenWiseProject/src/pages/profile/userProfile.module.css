@@ -1,0 +1,55 @@
+.formBackground{
+  background-color: #F7F7F7;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  margin: 5rem auto 5rem auto;
+}
+
+.formContainer{
+  height: 81.25vh;
+  padding: 5rem;
+}
+
+.formInputs{
+  font-family: 'Bentham', serif;
+  margin: 1rem auto 1rem auto;
+}
+
+.formInputLabel{
+  font-size: 24px;
+}
+
+.inputContainerUser{
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,.2);
+}
+
+.formTextArea{
+  resize: none;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,.2);
+}
+
+.formBTNStyle{
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  background-color: #EE6C4D;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,.2);
+  transition: all 0.5s ease-in-out;
+  font-family: 'Bentham', serif;
+  font-size: 1.5rem;
+  margin: 15rem 0rem 0rem 13.5rem;
+  color: #FFFFFF;
+}
