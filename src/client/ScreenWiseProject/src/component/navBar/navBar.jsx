@@ -13,7 +13,7 @@ function Navbar() {
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends-all">Friends</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/leaderboard">Leaderboard</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/tips">Tips Board</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/UserProfile">@username</a></li>
+                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/profile">@username</a></li>
               </ul>
             <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} href="http://localhost:5173">Logout</a></button>
           </div>
