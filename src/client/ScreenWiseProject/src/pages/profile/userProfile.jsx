@@ -4,7 +4,7 @@ function UserProfile () {
   return (
       <div>
         <div class={styles.formBackground}>
-          <form class={styles.formContainer}>
+          <form class={styles.formContainer} action="http://localhost:5173/dashboard" >
             
             <div class={styles.formInputs}>
               <p class={styles.formInputLabel}>Username </p>
@@ -17,7 +17,7 @@ function UserProfile () {
             </div>
             
             <div>
-              <button class={styles.formBTNStyle} >Submit</button>
+              <button class={styles.formBTNStyle} type="submit" >Save</button>
             </div>
           
           </form>
