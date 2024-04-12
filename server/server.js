@@ -15,8 +15,7 @@ dotenv.config();
 // Importing Routes
 import authRouter from './routes/auth.js';
 import indexRouter from './routes/index.js';
-
-
+import userRouter from './routes/users.js';
 
 const app = express();
 
@@ -33,6 +32,7 @@ app.use(morgan('dev'));
 // Routes
 app.use('/auth', authRouter);
 app.use('/', indexRouter);
+app.use('/api/users', userRouter);
 
 // Mongoose SetUp
 // Checking to see if there is any error connecting to the mongoDB using the PORT
@@ -42,5 +42,3 @@ mongoose.connect(process.env.MONGO_URL)
   app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
 })
 .catch((error) => console.log(`${PORT} did not connect`));
-
-
