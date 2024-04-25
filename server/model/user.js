@@ -12,16 +12,22 @@ const userSchema = new mongoose.Schema (
       unique: true,
     },
     friendList: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      userIdOfFriend: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      }
     }],
     friendSent: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      userIdOfFriend: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      }
     }],
     friendReceived: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      userIdOfFriend: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      }
     }],
     screenTimeData: [{
       date: {

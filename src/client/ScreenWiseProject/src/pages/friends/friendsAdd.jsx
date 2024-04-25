@@ -2,7 +2,36 @@ import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
 import styles from './friendsAdd.module.css';
 
+import React, {useEffect, useState} from 'react';
+import Axios from 'axios';
+
 function FriendsAdd() {
+
+  const [friendUsername, setUsername] = useState("");
+  const [isPending, setPending] = useState(false);
+
+  const handleNumberChange = (e) => {
+    setUsername(e.target.value);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setPending(true);
+      const userId = '66291b16eeb858a857cc2742';
+      const dataToSend = {friendID : friendUsername}
+      console.log("Sending Response")
+      const response = await Axios.post(`http://localhost:3000/api/users/addFriend/${userId}`, dataToSend);
+      setUsername('');
+      setPending(false);
+      getScreenTime();
+    } catch (error) {
+      setPending(false);
+      setUsername('');
+    }
+  }
+
+
   return(
     <div>
       
@@ -24,9 +53,10 @@ function FriendsAdd() {
             </div>
 
             <div class={styles.formContainerFriend}>
-              <form >
-                <input class={styles.inputContainerFriend} type="text" placeholder='@username'/>
-                <button class={styles.friendBTN} >Submit</button>
+              <form onSubmit={handleSubmit}>
+                <input class={styles.inputContainerFriend} type="text" placeholder='@username' value={friendUsername} onChange={handleNumberChange}/>
+                {!isPending && <button className={styles.friendBTN} type="submit">Submit</button>}
+                {isPending && <button className={styles.friendBTN} type="submit" disabled>Sending Request...</button>}
               </form>
             </div>
         
