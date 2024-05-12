@@ -113,7 +113,7 @@ const addFriend = async(req, res) => {
     const { userId } = req.params;
     const { friendID } = req.body;
 
-    console.log("At User")
+    console.log("At user")
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -121,18 +121,21 @@ const addFriend = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
+    console.log("At friend")
     const findFriendID = await User.findById(friendID); 
 
     if (!findFriendID) {
       return res.status(404).json({ error: "Friend not found" });
     }
 
+    console.log("At map")
     const friendMap = user.friendSent.map( (arrayElement) => {
       return arrayElement.userIdOfFriend;
     })
 
+    console.log("At for")
     for(let i = 0; i < friendMap.length; i++){
-      if(friendMap[i].userIdOfFriend.equals(findFriendID)){
+      if(friendMap[i].equals(findFriendID)){
         return res.status(404).json({ error: "Friend request was already sent" });
       }
     }
@@ -181,4 +184,62 @@ const getFriendsSent = async(req, res) => {
   }
 };
 
-export { addHours, getHours, addFriend, getFriendsSent};
+const getFriendsRequested = async(req, res) => {
+  try {
+    
+    const { userId } = req.params;
+
+    console.log("At User")
+    // Find the user by userId
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const arrayOfUserModels = [];
+    for(let i = 0; i < user.friendReceived.length; i++){
+      const friend = await User.findById(user.friendReceived[i].userIdOfFriend);
+
+      arrayOfUserModels.push(friend);
+
+    }
+
+    console.log("Done")
+    res.status(200).json({arrayOfUserModels});
+
+  } catch (error) {
+    
+  }
+}
+
+const getFriendsList = async(req, res) => {
+  try {
+    
+    const { userId } = req.params;
+
+    console.log("At User")
+    // Find the user by userId
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const arrayOfUserModels = [];
+    for(let i = 0; i < user.friendList.length; i++){
+      const friend = await User.findById(user.friendList[i].userIdOfFriend);
+
+      arrayOfUserModels.push(friend);
+
+    }
+
+    console.log("Done")
+    res.status(200).json({arrayOfUserModels});
+
+  } catch (error) {
+    
+  }
+}
+
+export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList};

@@ -1,8 +1,31 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
+import FriendCard from './friendCard';
 import styles from './friends.module.css'
 
+
+import React, {useEffect, useState} from 'react';
+import Axios from 'axios';
+
 function FriendsAll() {
+
+  const [friendsList, setFriendsList] = useState([]);
+
+  const getFriendsList = async () => {
+    try {
+      const userId = '66291b16eeb858a857cc2742';
+      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsList/${userId}`);
+      setFriendsList(response.data.arrayOfUserModels);
+    } catch (error) {
+      
+    }
+  }
+
+  useEffect(() => {
+    getFriendsList();
+  }, []);
+
+
   return(
     <div>
       
@@ -17,36 +40,14 @@ function FriendsAll() {
         <div class={styles.friendsBlockRight}>
           <div class={styles.headingBackground}>
             <div class={styles.headingContainer}>
-              <h1>All Friends-4</h1>
+              <h1>All Friends - {friendsList.length}</h1>
             </div>
           </div>
           <div class={styles.bodyBackground}>
             <div class={styles.bodyContainer}>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
+              {friendsList.map( (friendSent) => (
+                  <FriendCard username={friendSent.username} id={friendSent._id}/>
+              ))}
             </div>
           </div>
         </div>
