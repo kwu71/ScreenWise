@@ -3,7 +3,6 @@ import Axios from 'axios';
 
 import styles from './friendsPending.module.css'
 
-
 function friendCard(props) {
   return(
     <div>

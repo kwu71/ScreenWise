@@ -1,6 +1,7 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
-import FriendCard from './friendCard';
+import FriendSentCard from './friendSentCard';
+import FriendReceivedCard from './friendReceivedCard';
 import styles from './friendsPending.module.css'
 
 import React, {useEffect, useState} from 'react';
@@ -58,7 +59,7 @@ function FriendsPending() {
           <div class={styles.bodyBackground}>
             <div class={styles.bodyContainer}>
               {friendRequestReceived.map( (friendSent) => (
-                <FriendCard username={friendSent.username} id={friendSent._id}/>
+                <FriendReceivedCard username={friendSent.username} id={friendSent._id}/>
               ))}
             </div>
           </div>
@@ -72,7 +73,11 @@ function FriendsPending() {
           <div class={styles.bodyBackground}>
             <div class={styles.bodyContainer}>
               {friendRequestSent.map( (friendSent) => (
-                <FriendCard username={friendSent.username} id={friendSent._id}/>
+                <FriendSentCard 
+                  username={friendSent.username} 
+                  id={friendSent._id}
+                  onDelete={getFriendsSent}
+                  />
               ))}
             </div>
           </div>

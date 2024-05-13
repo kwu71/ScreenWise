@@ -42,7 +42,20 @@
     transition: all 0.3s;
     cursor: pointer;
   }
+
+  .friendCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .buttonDelete {
+    font-size: 1.5rem;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
   
-  .card:hover{
-    transform: scale(1.02);
+  .buttonDelete:hover{
+    transform: scale(1.25);
   }

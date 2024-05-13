@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import {addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList} from '../controllers/userControllers.js';
+import {addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, deleteFriendSent} from '../controllers/userControllers.js';
 
 const router = express.Router();
 
@@ -10,5 +10,6 @@ router.post("/addFriend/:userId", addFriend);
 router.get("/getFriendsSent/:userId", getFriendsSent);
 router.get("/getFriendsRequested/:userId", getFriendsRequested);
 router.get("/getFriendsList/:userId", getFriendsList);
+router.delete("/deleteFriendSent/:userId", deleteFriendSent);
 
 export default router;
