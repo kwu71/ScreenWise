@@ -20,7 +20,6 @@ function FriendsAdd() {
       setPending(true);
       const userId = '66291b16eeb858a857cc2742';
       const dataToSend = {friendID : friendUsername}
-      console.log("Sending Response")
       const response = await Axios.post(`http://localhost:3000/api/users/addFriend/${userId}`, dataToSend);
       setUsername('');
       setPending(false);

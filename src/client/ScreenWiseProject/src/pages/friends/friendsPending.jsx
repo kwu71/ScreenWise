@@ -23,7 +23,7 @@ function FriendsPending() {
   }
   const getFriendsRequested = async() => {
     try {
-      const userId = '66291b16eeb858a857cc2742';
+      const userId = '66291b1eeeb858a857cc2749';
       const response = await Axios.get(`http://localhost:3000/api/users/getFriendsRequested/${userId}`);
       setFriendsRequested(response.data.arrayOfUserModels);
     } catch (error) {
@@ -59,7 +59,11 @@ function FriendsPending() {
           <div class={styles.bodyBackground}>
             <div class={styles.bodyContainer}>
               {friendRequestReceived.map( (friendSent) => (
-                <FriendReceivedCard username={friendSent.username} id={friendSent._id}/>
+                <FriendReceivedCard 
+                  username={friendSent.username} 
+                  id={friendSent._id}
+                  onDelete={getFriendsRequested}
+                />
               ))}
             </div>
           </div>

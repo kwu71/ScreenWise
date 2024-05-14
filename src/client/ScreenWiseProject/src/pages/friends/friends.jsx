@@ -25,7 +25,6 @@ function FriendsAll() {
     getFriendsList();
   }, []);
 
-
   return(
     <div>
       

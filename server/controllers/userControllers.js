@@ -248,7 +248,6 @@ const deleteFriendSent = async(req, res) => {
     
     const { userId } = req.params;
     const { friendID } = req.body;
-    console.log(friendID);
 
     console.log("At user")
     // Find the user by userId
@@ -265,17 +264,11 @@ const deleteFriendSent = async(req, res) => {
       return res.status(404).json({ error: "Friend not found" });
     }
 
-    console.log("At map")
-    const friendMap = user.friendSent.map( (arrayElement) => {
-      return arrayElement.userIdOfFriend;
-    })
-
     console.log("At for")
-    for(let i = 0; i < friendMap.length; i++){
-      if(friendMap[i].equals(findFriendID)){
-        console.log("deleting")
-        user.friendSent.delete({ userIdOfFriend: friendID});
-        findFriendID.friendReceived.delete({userIdOfFriend: user});
+    for(let i = 0; i < user.friendSent.length; i++){
+      if(user.friendSent[i].userIdOfFriend.equals(friendID)){
+        user.friendSent.pull({ userIdOfFriend: friendID});
+        findFriendID.friendReceived.pull({ userIdOfFriend: userId});
       }
     }
     
@@ -290,4 +283,82 @@ const deleteFriendSent = async(req, res) => {
   }
 }
 
-export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, deleteFriendSent};
+const deleteFriendReceived = async(req, res) => {
+  console.log("Got Response")
+  try {
+    
+    const { userId } = req.params;
+    const { friendID } = req.body;
+
+    console.log("At user")
+    // Find the user by userId
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    console.log("At friend")
+    const findFriendID = await User.findById(friendID); 
+
+    if (!findFriendID) {
+      return res.status(404).json({ error: "Friend not found" });
+    }
+
+    console.log("At for")
+    for(let i = 0; i < user.friendReceived.length; i++){
+      if(user.friendReceived[i].userIdOfFriend.equals(friendID)){
+        user.friendReceived.pull({ userIdOfFriend: friendID});
+        findFriendID.friendSent.pull({ userIdOfFriend: userId});
+      }
+    }
+    
+    // Save the updated user data
+    await user.save();
+    await findFriendID.save();
+
+    res.status(200).json({ message: "Friend Request delete successfully" });
+    console.log("Done")
+  } catch (error) {
+    return res.status(404).json({ error: "Could not delete friend" });
+  }
+}
+
+const addFriendReceived = async(req, res) => {
+  console.log("Got Response")
+  try {
+    
+    const { userId } = req.params;
+    const { friendID } = req.body;
+
+    console.log("At user")
+    // Find the user by userId
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    console.log("At friend")
+    const findFriendID = await User.findById(friendID); 
+
+    if (!findFriendID) {
+      return res.status(404).json({ error: "Friend not found" });
+    }
+
+    console.log("Pushing")
+    user.friendList.push({ userIdOfFriend: friendID});
+    findFriendID.friendList.push({userIdOfFriend: user});
+    
+    // Save the updated user data
+    await user.save();
+    await findFriendID.save();
+
+    res.status(200).json({ message: "Friend Request delete successfully" });
+    console.log("Done")
+  } catch (error) {
+    return res.status(404).json({ error: "Could not delete friend" });
+  }
+}
+
+export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, deleteFriendSent, deleteFriendReceived, addFriendReceived};
