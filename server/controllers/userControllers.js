@@ -128,15 +128,42 @@ const addFriend = async(req, res) => {
       return res.status(404).json({ error: "Friend not found" });
     }
 
-    console.log("At map")
+
+    // Maps the userIDOfFriends for the user that is sending then checks if they have already sent a request.
+    console.log("checks if they have already sent a request")
     const friendMap = user.friendSent.map( (arrayElement) => {
       return arrayElement.userIdOfFriend;
     })
 
-    console.log("At for")
+    console.log(friendMap)
     for(let i = 0; i < friendMap.length; i++){
-      if(friendMap[i].equals(findFriendID)){
+      if(friendMap[i].equals(friendID)){
         return res.status(404).json({ error: "Friend request was already sent" });
+      }
+    }
+
+    // I also want to check if the user has already gotten a request from the person they want to sent to
+    console.log("check if the user has already gotten a request from the person")
+    const friendMapReceived = user.friendReceived.map( (arrayElement) => {
+      return arrayElement.userIdOfFriend;
+    })
+
+    console.log(findFriendID)
+    for(let i = 0; i < friendMapReceived.length; i++){
+      if(friendMapReceived[i].equals(friendID)){
+        return res.status(404).json({ error: "The user has already sent a request to you" });
+      }
+    }
+
+    // I also want to check if they are already friends
+    console.log("check if they are already friends")
+    const friendsListMap = user.friendList.map( (arrayElement) => {
+      return arrayElement.userIdOfFriend;
+    })
+
+    for(let i = 0; i < friendsListMap.length; i++){
+      if(friendsListMap[i].equals(friendID)){
+        return res.status(404).json({ error: "You are already friends" });
       }
     }
 
