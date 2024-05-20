@@ -19,7 +19,7 @@ function Dashboard() {
   const getScreenTime = async () => {
     try {
       setPendingTime(true);
-      const userId = '6611e042d73557ffab7c9f99';
+      const userId = '66291b16eeb858a857cc2742';
       const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${userId}`);
       setScreenTime(response.data);
       setPendingTime(false);
@@ -32,10 +32,11 @@ function Dashboard() {
     e.preventDefault();
     try {
       setPending(true);
-      const userId = '6611e042d73557ffab7c9f99';
+      const userId = '66291b16eeb858a857cc2742';
       const dataToSend = {hours : numberOfHours}
       console.log("Sending Response")
       const response = await Axios.post(`http://localhost:3000/api/users/addHours/${userId}`, dataToSend);
+      setNumberOfHours(0);
       setPending(false);
       getScreenTime();
     } catch (error) {

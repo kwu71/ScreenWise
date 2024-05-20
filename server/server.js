@@ -1,10 +1,8 @@
 // Import necessary npm libraries
 import dotenv from 'dotenv';
 import express from 'express';
-import session from 'express-session';
 import passport from './config/passport.js';
 import mongoose from 'mongoose';
-
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -19,15 +17,18 @@ import userRouter from './routes/users.js';
 
 const app = express();
 
-app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
+// Middleware Setup
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
+
+// Session Setup
+
+
+// Passport Setup
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 app.use('/auth', authRouter);

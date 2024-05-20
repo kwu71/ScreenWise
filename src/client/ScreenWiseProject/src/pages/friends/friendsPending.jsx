@@ -1,8 +1,42 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
+import FriendSentCard from './friendSentCard';
+import FriendReceivedCard from './friendReceivedCard';
 import styles from './friendsPending.module.css'
 
+import React, {useEffect, useState} from 'react';
+import Axios from 'axios';
+
 function FriendsPending() {
+
+  const [friendRequestSent, setFriendsSent] = useState([]);
+  const [friendRequestReceived, setFriendsRequested] = useState([]);
+  
+  const getFriendsSent = async() => {
+    try {
+      const userId = '66291b16eeb858a857cc2742';
+      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsSent/${userId}`);
+      setFriendsSent(response.data.arrayOfUserModels);
+    } catch (error) {
+      
+    }
+  }
+  const getFriendsRequested = async() => {
+    try {
+      const userId = '66291b1eeeb858a857cc2749';
+      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsRequested/${userId}`);
+      setFriendsRequested(response.data.arrayOfUserModels);
+    } catch (error) {
+      
+    }
+  }
+  
+  useEffect(() => {
+    getFriendsSent();
+    getFriendsRequested();
+  }, []);
+  
+  
   return(
     <div>
       
@@ -18,53 +52,37 @@ function FriendsPending() {
           
           <div class={styles.headingBackground}>
             <div class={styles.receivedContainer}>
-              <h1>Received Invites - 3</h1>
+              <h1>Received Invites - {friendRequestReceived.length}</h1>
             </div>
           </div>
           
           <div class={styles.bodyBackground}>
             <div class={styles.bodyContainer}>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
+              {friendRequestReceived.map( (friendSent) => (
+                <FriendReceivedCard 
+                  username={friendSent.username} 
+                  id={friendSent._id}
+                  onDelete={getFriendsRequested}
+                />
+              ))}
             </div>
           </div>
 
           <div class={styles.headingBackground}>
             <div class={styles.pendingContainer}>
-              <h1>Sent Invites - 3</h1>
+              <h1>Sent Invites - {friendRequestSent.length}</h1>
             </div>
           </div>
 
           <div class={styles.bodyBackground}>
             <div class={styles.bodyContainer}>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
-              <div class={styles.card}>
-                <div class={styles.friendCard}>
-                  <p class={styles.friendName}>@Blueemon</p>
-                </div>
-              </div>
+              {friendRequestSent.map( (friendSent) => (
+                <FriendSentCard 
+                  username={friendSent.username} 
+                  id={friendSent._id}
+                  onDelete={getFriendsSent}
+                  />
+              ))}
             </div>
           </div>
         
