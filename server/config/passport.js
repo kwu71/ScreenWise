@@ -19,39 +19,39 @@ dotenv.config();
 // serializeUser is then used to store the user ID for the session 
 // deserializeUser is then used to retrieve the data based on the user ID session
 
-    passport.use(
-      new GoogleStrategy(
-        {
-          clientID: process.env.GOOGLE_CLIENT_ID,
-          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-          callbackURL: '/auth/google/callback',
-          scope: ['profile'],
-        },
-        async(accessToken, refreshToken, profile, cb) => {
-          
-          const newUser = {
-            googleId: profile.id,
-            username: profile.displayName,
-          };
-          
-          try {
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: '/auth/google/callback',
+        scope: ['profile'],
+      },
+      async(accessToken, refreshToken, profile, done) => {
+        
+        const newUser = {
+          googleId: profile.id,
+          username: profile.displayName,
+        };
+        
+        try {
 
-            let user = await User.findOne({ googleId: profile.id });
+          let user = await User.findOne({ googleId: profile.id });
 
-            if (user) {
-              return cb(null, user);
-            } else {
-              user = await User.create(newUser);
-              return cb(null, user);
-            }
-
-          } catch (err){
-            console.log(err);
-            return cb(err, null);
+          if (user) {
+            return done(null, user);
+          } else {
+            user = await User.create(newUser);
+            return done(null, user);
           }
+        } catch (err){
+          console.log(err);
+          return done(err, null);
         }
-      )
+      }
     )
+  )
+  
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });

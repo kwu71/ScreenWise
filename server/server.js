@@ -2,6 +2,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import passport from './config/passport.js';
+import session from 'express-session';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -24,7 +25,12 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 // Session Setup
-
+app.use(session({
+  secret: process.env.COOKIESECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: true }
+}));
 
 // Passport Setup
 app.use(passport.initialize());
