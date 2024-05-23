@@ -29,8 +29,7 @@ function Dashboard() {
   const getScreenTime = async (userId) => {
     try {
       setPendingTime(true);
-      const userId = user._id;
-      const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${userId}`);
+      const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${user._id}`);
       setScreenTime(response.data);
       setPendingTime(false);
     } catch (error) {
@@ -42,10 +41,9 @@ function Dashboard() {
     e.preventDefault();
     try {
       setPending(true);
-      const userId = user._id;
       const dataToSend = {hours : numberOfHours}
       console.log("Sending Response")
-      const response = await Axios.post(`http://localhost:3000/api/users/addHours/${userId}`, dataToSend);
+      const response = await Axios.post(`http://localhost:3000/api/users/addHours/${user._id}`, dataToSend);
       setNumberOfHours(0);
       setPending(false);
       getScreenTime();
@@ -60,6 +58,12 @@ function Dashboard() {
     }
     getUserData();
   }, [])
+
+  useEffect(() => {
+    if(user) {
+      getScreenTime();
+    }
+  }, []);
 
   return (
     <div>

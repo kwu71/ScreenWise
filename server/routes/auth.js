@@ -19,7 +19,7 @@ router.get(
 )
 
 router.get('/profile', isAuthenticated, (req, res) => {
-  return es.json(req.user);
+  return res.json(req.user);
 });
 
 router.post('/logout', function(req, res, next){
