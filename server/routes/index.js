@@ -1,4 +1,5 @@
 import express from 'express';
+import isAuthenticated from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -11,8 +12,8 @@ router.get('/', (req, res) => {
 
 // Dashboard
 // get
-router.get('/', (req, res) => {
-  res.render('dashboard');
+router.get('/', isAuthenticated, (req, res) => {
+  res.render('http://localhost:5173/dashboard');
 });
 
 export default router;

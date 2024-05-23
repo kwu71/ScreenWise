@@ -11,15 +11,25 @@ function Dashboard() {
   const [totalScreenTime, setScreenTime] = useState(0);
   const [isPending, setPending] = useState(false);
   const [isPendingTime, setPendingTime] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const getUser = async () => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/auth/profile`, { withCredentials: true });
+      setUser(response.data);
+    } catch (error) {
+      
+    }
+  };
 
   const handleNumberChange = (e) => {
     setNumberOfHours(e.target.value);
   };
 
-  const getScreenTime = async () => {
+  const getScreenTime = async (userId) => {
     try {
       setPendingTime(true);
-      const userId = '66291b16eeb858a857cc2742';
+      const userId = user._id;
       const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${userId}`);
       setScreenTime(response.data);
       setPendingTime(false);
@@ -32,7 +42,7 @@ function Dashboard() {
     e.preventDefault();
     try {
       setPending(true);
-      const userId = '66291b16eeb858a857cc2742';
+      const userId = user._id;
       const dataToSend = {hours : numberOfHours}
       console.log("Sending Response")
       const response = await Axios.post(`http://localhost:3000/api/users/addHours/${userId}`, dataToSend);
@@ -45,7 +55,10 @@ function Dashboard() {
   }
 
   useEffect(() => {
-    getScreenTime();
+    const getUserData = async () => {
+      await getUser();
+    }
+    getUserData();
   }, [])
 
   return (

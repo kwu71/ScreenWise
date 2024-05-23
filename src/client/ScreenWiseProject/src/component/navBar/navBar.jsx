@@ -2,6 +2,16 @@ import React from 'react';
 import styles from './navBar.module.css'
 
 function Navbar() {
+
+  const logout = async () => {
+    try {
+      await Axios.post(`http://localhost:3000/auth/logout`, { withCredentials: true });
+    } catch (error) {
+      
+    }
+  };
+
+
   return(
     <div>
       <div class={styles.navBackground}>
@@ -15,7 +25,7 @@ function Navbar() {
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/tips">Tips Board</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/profile">@username</a></li>
               </ul>
-            <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} href="http://localhost:5173">Logout</a></button>
+            <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} onClick={logout}>Logout</a></button>
           </div>
         </nav>
       </div>

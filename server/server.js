@@ -20,7 +20,10 @@ const app = express();
 
 // Middleware Setup
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', // Frontend origin
+  credentials: true // Allow credentials (e.g., cookies)
+}));
 app.use(helmet());
 app.use(morgan('dev'));
 
@@ -29,7 +32,7 @@ app.use(session({
   secret: process.env.COOKIESECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: true }
+  cookie: { secure: false }
 }));
 
 // Passport Setup
