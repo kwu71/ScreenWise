@@ -42,7 +42,6 @@ function Dashboard() {
     try {
       setPending(true);
       const dataToSend = {hours : numberOfHours}
-      console.log("Sending Response")
       const response = await Axios.post(`http://localhost:3000/api/users/addHours/${user._id}`, dataToSend);
       setNumberOfHours(0);
       setPending(false);
