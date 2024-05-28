@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 // Dashboard
 // get
-router.get('/', isAuthenticated, (req, res) => {
+router.get('dashboard', isAuthenticated, (req, res) => {
   res.render('http://localhost:5173/dashboard');
 });
 
