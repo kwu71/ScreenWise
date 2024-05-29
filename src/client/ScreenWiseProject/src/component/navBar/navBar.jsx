@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './navBar.module.css'
+import useUserStore from '../../stores/userStore';
 
 function Navbar() {
 
-  const logout = async () => {
-    try {
-      await Axios.post(`http://localhost:3000/auth/logout`, { withCredentials: true });
-    } catch (error) {
-      
-    }
-  };
+  const logout = useUserStore((state) => state.logout);
+  const user = useUserStore((state) => state.user);
 
+  useEffect(() => {
+
+  }, [user]);
 
   return(
     <div>
@@ -23,9 +22,12 @@ function Navbar() {
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends-all">Friends</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/leaderboard">Leaderboard</a></li>
                 <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/tips">Tips Board</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/profile">@username</a></li>
+                <li class={styles.navItemsLi}>
+                    {user !== null && <a className={styles.navText} href="http://localhost:5173/profile">@{user.username}</a>}
+                    {user == null  && <a className={styles.navText} href="http://localhost:5173/profile">@username</a>}
+                  </li>
               </ul>
-            <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} onClick={logout}>Logout</a></button>
+            <button class={styles.navLoginBTN} onClick={logout}><a class={styles.navLoginTextBTN}>Logout</a></button>
           </div>
         </nav>
       </div>

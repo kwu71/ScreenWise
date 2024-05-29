@@ -4,15 +4,16 @@ import Axios from 'axios';
 import styles from './friendsPending.module.css'
 import { TiDelete } from "react-icons/ti";
 import { CiCircleCheck } from "react-icons/ci";
+import useUserStore from '../../stores/userStore';
 
 function friendCard(props) {
+  const user = useUserStore((state) => state.user);
 
   const handleAddDelete = async() => {
     try {
-      const userId = '66291b1eeeb858a857cc2749';
       const dataToSend = {friendID : props.id}
       console.log(dataToSend)
-      const response = await Axios.delete(`http://localhost:3000/api/users/deleteFriendReceived/${userId}`, {
+      const response = await Axios.delete(`http://localhost:3000/api/users/deleteFriendReceived/${user._id}`, {
         data: dataToSend
       });
       props.onDelete();
@@ -21,12 +22,15 @@ function friendCard(props) {
     }
   }
 
+  useEffect(() => {
+
+  },[user])
+
   const handleAdd = async() => {
     try {
       await handleAddDelete();
-      const userId = '66291b1eeeb858a857cc2749';
       const dataToSend = {friendID : props.id}
-      const response = await Axios.post(`http://localhost:3000/api/users/addFriendReceived/${userId}`, dataToSend);
+      const response = await Axios.post(`http://localhost:3000/api/users/addFriendReceived/${user._id}`, dataToSend);
     } catch (error) {
       
     }

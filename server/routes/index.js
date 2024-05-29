@@ -6,8 +6,8 @@ const router = express.Router();
 
 // login page
 // get
-router.get('/', (req, res) => {
-  res.render('login');
+router.get('login', (req, res) => {
+  res.render('http://localhost:5173/login');
 });
 
 // Dashboard

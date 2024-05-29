@@ -6,15 +6,16 @@ import styles from './friends.module.css'
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
+import useUserStore from '../../stores/userStore';
 
 function FriendsAll() {
 
   const [friendsList, setFriendsList] = useState([]);
+  const user = useUserStore((state) => state.user);
 
   const getFriendsList = async () => {
     try {
-      const userId = '66291b16eeb858a857cc2742';
-      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsList/${userId}`);
+      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsList/${user._id}`);
       setFriendsList(response.data.arrayOfUserModels);
     } catch (error) {
       
@@ -22,8 +23,10 @@ function FriendsAll() {
   }
 
   useEffect(() => {
-    getFriendsList();
-  }, []);
+    if(user !== null){
+      getFriendsList();
+    }
+  }, [user]);
 
   return(
     <div>

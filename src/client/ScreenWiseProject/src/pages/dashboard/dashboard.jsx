@@ -3,6 +3,7 @@ import styles from './dashboard.module.css'
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
+import useUserStore from '../../stores/userStore';
 
 
 function Dashboard() {
@@ -11,22 +12,13 @@ function Dashboard() {
   const [totalScreenTime, setScreenTime] = useState(0);
   const [isPending, setPending] = useState(false);
   const [isPendingTime, setPendingTime] = useState(false);
-  const [user, setUser] = useState(null);
-
-  const getUser = async () => {
-    try {
-      const response = await Axios.get(`http://localhost:3000/auth/profile`, { withCredentials: true });
-      setUser(response.data);
-    } catch (error) {
-      
-    }
-  };
+  const user = useUserStore((state) => state.user);
 
   const handleNumberChange = (e) => {
     setNumberOfHours(e.target.value);
   };
 
-  const getScreenTime = async (userId) => {
+  const getScreenTime = async () => {
     try {
       setPendingTime(true);
       const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${user._id}`);
@@ -52,17 +44,10 @@ function Dashboard() {
   }
 
   useEffect(() => {
-    const getUserData = async () => {
-      await getUser();
-    }
-    getUserData();
-  }, [])
-
-  useEffect(() => {
-    if(user) {
+    if(user !== null){
       getScreenTime();
     }
-  }, []);
+  }, [user])
 
   return (
     <div>

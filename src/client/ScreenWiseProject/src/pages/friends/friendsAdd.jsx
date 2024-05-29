@@ -4,11 +4,13 @@ import styles from './friendsAdd.module.css';
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
+import useUserStore from '../../stores/userStore';
 
 function FriendsAdd() {
 
   const [friendUsername, setUsername] = useState("");
   const [isPending, setPending] = useState(false);
+  const user = useUserStore((state) => state.user);
 
   const handleNumberChange = (e) => {
     setUsername(e.target.value);
@@ -18,9 +20,8 @@ function FriendsAdd() {
     e.preventDefault();
     try {
       setPending(true);
-      const userId = '66291b16eeb858a857cc2742';
       const dataToSend = {friendID : friendUsername}
-      const response = await Axios.post(`http://localhost:3000/api/users/addFriend/${userId}`, dataToSend);
+      const response = await Axios.post(`http://localhost:3000/api/users/addFriend/${user._id}`, dataToSend);
       setUsername('');
       setPending(false);
       getScreenTime();
@@ -29,6 +30,10 @@ function FriendsAdd() {
       setUsername('');
     }
   }
+
+  useEffect(() => {
+
+  }, [user]);
 
 
   return(

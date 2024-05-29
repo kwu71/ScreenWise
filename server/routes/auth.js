@@ -23,8 +23,13 @@ router.get('/profile', isAuthenticated, (req, res) => {
 });
 
 router.post('/logout', function(req, res, next){
-  req.logOut();
-  res.redirect('http://localhost:5173');
+  req.logOut((err) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.status(200).json({ message: 'Logged out successfully' });
+    }
+  });
 });
 
 export default router;
