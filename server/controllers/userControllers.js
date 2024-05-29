@@ -47,6 +47,11 @@ const getHours = async(req, res) => {
     const totalTime = await User.aggregate(
       [
         {
+          $match: {
+            _id: user._id
+          }
+        },
+        {
           $unwind: "$screenTimeData",
         },
         {

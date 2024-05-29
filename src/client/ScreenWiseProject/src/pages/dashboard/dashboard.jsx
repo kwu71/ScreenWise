@@ -3,6 +3,7 @@ import styles from './dashboard.module.css'
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
+import useUserStore from '../../stores/userStore';
 
 
 function Dashboard() {
@@ -11,6 +12,7 @@ function Dashboard() {
   const [totalScreenTime, setScreenTime] = useState(0);
   const [isPending, setPending] = useState(false);
   const [isPendingTime, setPendingTime] = useState(false);
+  const user = useUserStore((state) => state.user);
 
   const handleNumberChange = (e) => {
     setNumberOfHours(e.target.value);
@@ -19,8 +21,7 @@ function Dashboard() {
   const getScreenTime = async () => {
     try {
       setPendingTime(true);
-      const userId = '66291b16eeb858a857cc2742';
-      const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${userId}`);
+      const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${user._id}`);
       setScreenTime(response.data);
       setPendingTime(false);
     } catch (error) {
@@ -32,10 +33,8 @@ function Dashboard() {
     e.preventDefault();
     try {
       setPending(true);
-      const userId = '66291b16eeb858a857cc2742';
       const dataToSend = {hours : numberOfHours}
-      console.log("Sending Response")
-      const response = await Axios.post(`http://localhost:3000/api/users/addHours/${userId}`, dataToSend);
+      const response = await Axios.post(`http://localhost:3000/api/users/addHours/${user._id}`, dataToSend);
       setNumberOfHours(0);
       setPending(false);
       getScreenTime();
@@ -45,8 +44,10 @@ function Dashboard() {
   }
 
   useEffect(() => {
-    getScreenTime();
-  }, [])
+    if(user !== null){
+      getScreenTime();
+    }
+  }, [user])
 
   return (
     <div>

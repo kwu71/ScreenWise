@@ -1,18 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Axios from 'axios';
 
 import styles from './friendsPending.module.css'
 import { TiDelete } from "react-icons/ti";
+import useUserStore from '../../stores/userStore';
 
 
 function friendSentCard(props) {
+  const user = useUserStore((state) => state.user);
   
   const handleDelete = async() => {
     try {
-      const userId = '66291b16eeb858a857cc2742';
       const dataToSend = {friendID : props.id}
       console.log(dataToSend);
-      const response = await Axios.delete(`http://localhost:3000/api/users/deleteFriendSent/${userId}`, {
+      const response = await Axios.delete(`http://localhost:3000/api/users/deleteFriendSent/${user._id}`, {
         data: dataToSend
       });
       props.onDelete();
@@ -20,6 +21,10 @@ function friendSentCard(props) {
       
     }
   }
+
+  useEffect(() => {
+
+  },[user])
   
   return(
     <div>

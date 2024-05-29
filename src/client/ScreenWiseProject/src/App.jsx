@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import React, {useEffect} from 'react';
 import LandingPage from './pages/landingPage/landingPage'
 import Login from './pages/login/login'
 import Dashboard from './pages/dashboard/dashboard'
@@ -9,7 +10,16 @@ import FriendsPending from './pages/friends/friendsPending'
 import FriendsAdd from './pages/friends/friendsAdd';
 import UserProfile from './pages/profile/userProfile';
 
+// State
+import useUserStore from './stores/userStore';
+
 function App() {
+
+  const fetchUser = useUserStore((state) => state.fetchUser);
+
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
 
   return (
     <>
