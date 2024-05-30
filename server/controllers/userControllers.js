@@ -393,4 +393,24 @@ const addFriendReceived = async(req, res) => {
   }
 }
 
-export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, deleteFriendSent, deleteFriendReceived, addFriendReceived};
+// Leaderboard
+
+const getLeaderboard = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    console.log("At User getTotalTime")
+    // Find the user by userId
+    const user = await User.findById(userId);
+    
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    console.log("Start Aggregate")
+  } catch (error) {
+    
+  }
+}
+
+export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, deleteFriendSent, deleteFriendReceived, addFriendReceived, getLeaderboard};

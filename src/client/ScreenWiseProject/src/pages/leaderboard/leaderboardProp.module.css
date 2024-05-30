@@ -1,0 +1,40 @@
+.firstSectionHeader{
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.leaderboardUser{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rankNumber{
+  font-family: 'Bentham', serif;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgba(181, 142, 142, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-left: 2rem;
+}
+
+.friendUser{
+  font-family: 'Bentham', serif;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-left: 6rem;
+  border-radius: 10px;
+}
+
+.friendHours{
+  font-family: 'Bentham', serif;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 10px;
+  margin-right: 2rem;
+}
