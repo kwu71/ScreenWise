@@ -15,6 +15,7 @@ function Leaderboard() {
     try {
       const leaderboardData = await Axios.get(`http://localhost:3000/api/users/getLeaderboard/${user._id}`);
       setLeaderboardFriends(leaderboardData.data); 
+      console.log(leaderboardFriends);
     } catch (error) {
       
     }
@@ -22,7 +23,7 @@ function Leaderboard() {
 
 
   useEffect(() => {
-
+    fetchFriendData();
   },[user])
 
   return(
@@ -47,7 +48,7 @@ function Leaderboard() {
           </div>
 
           <div class={styles.leaderboardBody}>
-            <LeaderboardProp/>
+            
           </div>
         </div>
     </div>
