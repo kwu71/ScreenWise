@@ -11,6 +11,7 @@ import useUserStore from '../../stores/userStore';
 function FriendsAll() {
 
   const [friendsList, setFriendsList] = useState([]);
+  const [rankNumber, setRankNumber] = useState(1);
   const user = useUserStore((state) => state.user);
 
   const getFriendsList = async () => {

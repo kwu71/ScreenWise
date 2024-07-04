@@ -36,5 +36,9 @@
   font-size: 1.25rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 10px;
-  margin-right: 2rem;
+  margin-right: 3rem;
+}
+
+.marginTop {
+  margin-top: 1.5rem;
 }

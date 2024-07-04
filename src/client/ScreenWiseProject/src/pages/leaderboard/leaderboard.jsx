@@ -8,7 +8,7 @@ import useUserStore from '../../stores/userStore';
 
 function Leaderboard() {
 
-  const [leaderboardFriends, setLeaderboardFriends] = useState([])
+  const [leaderboardFriends, setLeaderboardFriends] = useState([]);
   const user = useUserStore((state) => state.user);
 
   const fetchFriendData = async () => {
@@ -48,7 +48,8 @@ function Leaderboard() {
           </div>
 
           <div class={styles.leaderboardBody}>
-            
+            {leaderboardFriends.length === 0 && <h1 className={styles.center}>Currently no friends or hours!</h1>}
+            {leaderboardFriends.length >= 1 && leaderboardFriends.map((friend, index) => <LeaderboardProp rank={index + 1} username={friend.username} hours={friend.totalHours}/>)}
           </div>
         </div>
     </div>
