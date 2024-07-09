@@ -40,6 +40,10 @@
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,.2);
 }
 
+.flexContainer{
+  display: flex;
+}
+
 .formBTNStyle{
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   background-color: #EE6C4D;

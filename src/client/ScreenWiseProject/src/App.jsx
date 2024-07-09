@@ -9,6 +9,7 @@ import FriendsAll from './pages/friends/friends';
 import FriendsPending from './pages/friends/friendsPending'
 import FriendsAdd from './pages/friends/friendsAdd';
 import UserProfile from './pages/profile/userProfile';
+import EditUserProfile from './pages/profile/editUserProfile';
 
 // State
 import useUserStore from './stores/userStore';
@@ -35,6 +36,7 @@ function App() {
           <Route path="/friends-pending" element= {<FriendsPending />}/>
           <Route path="/friends-add" element= {<FriendsAdd />}/>
           <Route path="/profile" element= {<UserProfile />}/>
+          <Route path="/edit-profile" element= {<EditUserProfile />}/>
         </Routes>
       </BrowserRouter>
     </>

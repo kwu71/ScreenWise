@@ -1,7 +1,6 @@
 import styles from './userProfile.module.css';
-import { Link } from 'react-router-dom';
 
-function UserProfile () {
+function EditUserProfile () {
   return (
       <div>
         <div class={styles.formBackground}>
@@ -17,9 +16,8 @@ function UserProfile () {
             <textarea class={styles.formTextArea} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
             </div>
             
-            <div>
-              <Link class={styles.formBTNStyle} to="/edit-profile" >Edit</Link>
-              <button class={styles.formBTNStyle} type="submit" >Done</button>
+            <div className={styles.flexContainer}>
+              <button class={styles.formBTNStyle} type="submit" >Save</button>
             </div>
           
           </form>
@@ -28,4 +26,4 @@ function UserProfile () {
   )
 }
 
-export default UserProfile;
+export default EditUserProfile;
