@@ -41,6 +41,7 @@ function EditUserProfile () {
     try {
       setNewBio();
       setNewUsername();
+      window.location.href = 'http://localhost:5173/profile';
     } catch (error) {
 
     }
@@ -56,7 +57,7 @@ function EditUserProfile () {
   return (
       <div>
         <div class={styles.formBackground}>
-          <form class={styles.formContainer} onSubmit={handleSubmit}>
+          <form class={styles.formContainer} onSubmit={handleSubmit} >
             
             <div class={styles.formInputs}>
               <p class={styles.formInputLabel}>Username </p>
