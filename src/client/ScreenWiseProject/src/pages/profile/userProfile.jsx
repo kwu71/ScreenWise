@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 import useUserStore from '../../stores/userStore';
 
-import styles from './userProfile.module.css';
 import { Link } from 'react-router-dom';
 
 function UserProfile () {
@@ -37,23 +36,23 @@ function UserProfile () {
 
   return (
       <div>
-        <div className={styles.formBackground}>
-          <form className={styles.formContainer} action="http://localhost:5173/dashboard" >
+        <div>
+          <form action="http://localhost:5173/dashboard" >
             
-            <div className={styles.formInputs}>
-              <p className={styles.formInputLabel}>Username </p>
-              <p className={styles.marginTop}>{username}</p>
+            <div>
+              <p>Username </p>
+              <p>{username}</p>
             </div>
 
-            <div className={styles.formInputs}>
-              <p className={styles.formInputLabel}>Bio </p>
-                {bio.length <= 0 && <p className={styles.marginTop}> No bio yet! </p>}
-                {bio.length > 0  && <p className={styles.marginTop}> {bio} </p>}
+            <div>
+              <p>Bio </p>
+                {bio.length <= 0 && <p> No bio yet! </p>}
+                {bio.length > 0  && <p> {bio} </p>}
             </div>
             
-            <div className={styles.btnContainer}>
-              <Link className={styles.formBTNStyle} to="/edit-profile" >Edit</Link>
-              <button className={styles.formBTNStyle} type="submit" >Done</button>
+            <div>
+              <Link to="/edit-profile" >Edit</Link>
+              <button type="submit" >Done</button>
             </div>
           
           </form>
