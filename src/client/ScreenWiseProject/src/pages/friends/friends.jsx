@@ -1,8 +1,6 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
 import FriendCard from './friendCard';
-import styles from './friends.module.css'
-
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
@@ -34,20 +32,20 @@ function FriendsAll() {
       
       <div><Navbar /></div>  
 
-      <div className={styles.pageContainer}>
+      <div>
         
-        <div className={styles.friendNavContainer}>
+        <div>
           <FriendNavBar />
         </div>
         
-        <div class={styles.friendsBlockRight}>
-          <div class={styles.headingBackground}>
-            <div class={styles.headingContainer}>
+        <div>
+          <div>
+            <div>
               <h1>All Friends - {friendsList.length}</h1>
             </div>
           </div>
-          <div class={styles.bodyBackground}>
-            <div class={styles.bodyContainer}>
+          <div>
+            <div>
               {friendsList.map( (friendSent) => (
                   <FriendCard username={friendSent.username} id={friendSent._id}/>
               ))}

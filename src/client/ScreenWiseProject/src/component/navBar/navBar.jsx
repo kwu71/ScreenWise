@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import styles from './navBar.module.css'
 import useUserStore from '../../stores/userStore';
 
 function Navbar() {
@@ -13,24 +12,50 @@ function Navbar() {
 
   return(
     <div>
-      <div class={styles.navBackground}>
-        <nav class={styles.navContainer}>
-          <div><h1 class={styles.navTitle}>ScreenWise</h1></div>
-          <div class={styles.navContainerMainFunctions}>
-              <ul class={styles.navItems}>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/dashboard">Home</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/friends-all">Friends</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/leaderboard">Leaderboard</a></li>
-                <li class={styles.navItemsLi}><a class={styles.navText} href="http://localhost:5173/tips">Tips Board</a></li>
-                <li class={styles.navItemsLi}>
-                    {user !== null && <a className={styles.navText} href="http://localhost:5173/profile">@{user.username}</a>}
-                    {user == null  && <a className={styles.navText} href="http://localhost:5173/profile">@username</a>}
+        <nav className='w-full bg-slate-200 z-10'>
+          <div className='flex justify-between w-full max-w-6xl mx-auto py-4 items-center'>
+            <div>
+              <a href="http://localhost:5173/dashboard" className='font-extrabold ml-8 xl:ml-0'>
+                ScreenWise
+              </a>
+            </div>
+            <div className='flex'>
+                <ul className='flex justify-between'>
+                  <li className='mx-2'>
+                    <a href="http://localhost:5173/dashboard" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>
+                      Home
+                    </a>
                   </li>
-              </ul>
-            <button class={styles.navLoginBTN} onClick={logout}><a class={styles.navLoginTextBTN}>Logout</a></button>
+                  <li className='mx-2'>
+                    <a href="http://localhost:5173/friends-all" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>
+                      Friends
+                    </a>
+                  </li>
+                  <li className='mx-2'>
+                    <a href="http://localhost:5173/leaderboard" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>
+                      Leaderboard
+                    </a>
+                  </li>
+                  <li className='mx-2'>
+                    <a href="http://localhost:5173/tips" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>
+                      Tips Board
+                    </a>
+                  </li>
+                  <li className='mx-2'>
+                      {user !== null && <a href="http://localhost:5173/profile" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>@{user.username}</a>}
+                      {user == null  && <a href="http://localhost:5173/profile" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>@username</a>}
+                  </li>
+                </ul>
+            </div>
+            <div>
+              <button onClick={logout} className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+                <a className='font-semibold'>
+                  Logout
+                </a>
+              </button>
+            </div>
           </div>
         </nav>
-      </div>
     </div>
   )
 }

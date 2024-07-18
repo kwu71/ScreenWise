@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 
-import styles from './friendsPending.module.css'
 import { TiDelete } from "react-icons/ti";
 import { CiCircleCheck } from "react-icons/ci";
 import useUserStore from '../../stores/userStore';
@@ -39,14 +38,14 @@ function friendCard(props) {
   return(
     <div>
 
-      <div class={styles.card}>
-        <div class={styles.friendCard} key={props.id}>
-          <p class={styles.friendName}>@{props.username}</p>
+      <div>
+        <div key={props.id}>
+          <p>@{props.username}</p>
           <div>
-            <button class={styles.buttonDelete} onClick={handleAddDelete} > 
+            <button onClick={handleAddDelete} > 
               <TiDelete /> 
             </button>
-            <button class={`${styles.buttonDelete} ${styles.spaceLeftCheck}`} onClick={handleAdd} > 
+            <button onClick={handleAdd} > 
               <CiCircleCheck />
             </button>
           </div>

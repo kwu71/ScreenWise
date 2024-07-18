@@ -7,17 +7,21 @@ function LandingPage() {
     
     <div>
 
-      <div className='w-full bg-slate-100 z-10'>
+      <div className='w-full bg-slate-200 z-10'>
         <div className='w-full max-w-6xl mx-auto py-4'>
           <nav className='flex items-center justify-between'>
             <h1 className='font-extrabold ml-8 xl:ml-0'>ScreenWise</h1>
-            <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-200'><a href="http://localhost:5173/login">Login</a></button>
+            <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+              <a href="http://localhost:5173/login" className='font-semibold'>
+                Login
+              </a>
+            </button>
           </nav>
         </div>
       </div>
 
 
-      <div className='w-full bg-slate-200 py-64'>
+      <div className='w-full bg-slate-300 py-64'>
         <div className='w-full max-w-6xl mx-auto'>
           <div className='px-8 text-center items-center'>
             <h1 className='font-extrabold text-4xl'>Imagine a community...</h1>
@@ -66,7 +70,11 @@ function LandingPage() {
           <div className='w-full max-w-6xl mx-auto'> 
             <nav className='flex items-center justify-between'>
               <h1 className='font-extrabold ml-8 xl:ml-0'>ScreenWise</h1>
-              <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-300'><a href="http://localhost:5173/login">Login</a></button>
+              <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+                <a href="http://localhost:5173/login" className='font-semibold'>
+                  Login
+                </a>
+              </button>
             </nav>
           </div>
         </footer>

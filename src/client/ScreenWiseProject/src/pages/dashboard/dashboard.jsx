@@ -1,5 +1,5 @@
 import Navbar from '../../component/navBar/navBar';
-import styles from './dashboard.module.css'
+
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
@@ -51,28 +51,28 @@ function Dashboard() {
 
   return (
     <div>
-      <div><Navbar /></div>  
+      <Navbar />    
 
-      <div className={styles.chartContainer}>
-        {!isPendingTime && <h1>Hours: {totalScreenTime}</h1>}
-        {isPendingTime && <h1>Fetching Time {totalScreenTime}</h1>}
+      <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-[75vh]'>
+        <div className='w-full max-w-xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
+          <div>
+            {!isPendingTime && <h1>Hours: {totalScreenTime}</h1>}
+            {isPendingTime && <h1>Fetching Time {totalScreenTime}</h1>}
+          </div>
+
+          <div>
+            <h1>Input amount of hours on social media today</h1>
+          </div>
+
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input type="number" value={numberOfHours} onChange={handleNumberChange}/>
+              {!isPending && <button type="submit">Submit</button>}
+              {isPending && <button type="submit" disabled>Sending Hours...</button>}
+            </form>
+          </div>
+        </div>      
       </div>
-
-      <div className={styles.inputSection}>
-        
-        <h1 className={styles.inputTitle} >Input amount of hours on social media today</h1>
-
-        <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit}>
-            <input className={styles.inputContainer} type="number" value={numberOfHours} onChange={handleNumberChange}/>
-            {!isPending && <button className={styles.formBTN} type="submit">Submit</button>}
-            {isPending && <button className={styles.formBTN} type="submit" disabled>Sending Hours...</button>}
-          </form>
-        </div>
-      
-      </div>
-    
-    
     
     </div>
   );

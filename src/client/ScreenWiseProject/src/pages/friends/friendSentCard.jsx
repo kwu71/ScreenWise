@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import Axios from 'axios';
 
-import styles from './friendsPending.module.css'
 import { TiDelete } from "react-icons/ti";
 import useUserStore from '../../stores/userStore';
 
@@ -29,10 +28,10 @@ function friendSentCard(props) {
   return(
     <div>
 
-      <div class={styles.card}>
-        <div class={styles.friendCard} key={props.id}>
-          <p class={styles.friendName}>@{props.username}</p>
-          <button class={styles.buttonDelete} onClick={handleDelete} > 
+      <div>
+        <div key={props.id}>
+          <p>@{props.username}</p>
+          <button onClick={handleDelete} > 
             <TiDelete /> 
           </button>
         </div>

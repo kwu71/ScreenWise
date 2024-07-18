@@ -1,6 +1,5 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
-import styles from './friendsAdd.module.css';
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
@@ -41,26 +40,26 @@ function FriendsAdd() {
       
       <div><Navbar /></div>  
 
-      <div className={styles.pageContainer}>
+      <div>
         
-        <div className={styles.friendNavContainer}>
+        <div>
           <FriendNavBar />
         </div>
         
-        <div class={styles.friendsBlockRight}>
+        <div>
         
-            <div class={styles.headingBackground}>
-              <div class={styles.addFriendContainer}>
+            <div>
+              <div>
                 <h1>Add a Friend!</h1>
-                <p class={styles.addFriendContainerPTag}>You can add people on ScreenWise with their username!</p>
+                <p>You can add people on ScreenWise with their username!</p>
               </div>
             </div>
 
-            <div class={styles.formContainerFriend}>
+            <div>
               <form onSubmit={handleSubmit}>
-                <input class={styles.inputContainerFriend} type="text" placeholder='@username' value={friendUsername} onChange={handleNumberChange}/>
-                {!isPending && <button className={styles.friendBTN} type="submit">Submit</button>}
-                {isPending && <button className={styles.friendBTN} type="submit" disabled>Sending Request...</button>}
+                <input type="text" placeholder='@username' value={friendUsername} onChange={handleNumberChange}/>
+                {!isPending && <button type="submit">Submit</button>}
+                {isPending && <button type="submit" disabled>Sending Request...</button>}
               </form>
             </div>
         
