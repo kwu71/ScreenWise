@@ -1,5 +1,4 @@
 import Navbar from '../../component/navBar/navBar';
-import styles from './leaderboard.module.css';
 import LeaderboardProp from './leaderboardProp';
 
 import React, {useEffect, useState} from 'react';
@@ -30,25 +29,25 @@ function Leaderboard() {
     <div>
         <div><Navbar /></div>
 
-        <div class={styles.headerContainer}>
-          <h1 class={styles.h1Header}>Screen Time Use</h1>
-          <p class={styles.pHeader}>Help your friends out and remind them to put down the phone sometimes!</p>
+        <div>
+          <h1>Screen Time Use</h1>
+          <p>Help your friends out and remind them to put down the phone sometimes!</p>
         </div>
 
-        <div class={styles.leaderboardTable}>
+        <div>
           
-          <div class={styles.leaderboardHeading}>
-            <div class={styles.firstSectionHeader}>
-              <p class={styles.rank}>Rank</p>
-              <p class={styles.username}>Username</p>
+          <div>
+            <div>
+              <p>Rank</p>
+              <p>Username</p>
             </div>
-            <div class={styles.secondSectionHeader}>
-              <p class={styles.hours}>Hours</p>
+            <div>
+              <p>Hours</p>
             </div>
           </div>
 
-          <div class={styles.leaderboardBody}>
-            {leaderboardFriends.length === 0 && <h1 className={styles.center}>Currently no friends or hours!</h1>}
+          <div>
+            {leaderboardFriends.length === 0 && <h1>Currently no friends or hours!</h1>}
             {leaderboardFriends.length >= 1 && leaderboardFriends.map((friend, index) => <LeaderboardProp rank={index + 1} username={friend.username} hours={friend.totalHours}/>)}
           </div>
         </div>

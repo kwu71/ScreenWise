@@ -16,6 +16,10 @@ const addHours = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
+    if (hours < 0) {
+      return res.status(404).json({ error: "Please input hours greater than or equal to 0"})
+    }
+
     console.log("Pushing")
     user.screenTimeData.push({ date: new Date(), time: hours });
     

@@ -2,7 +2,6 @@ import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
 import FriendSentCard from './friendSentCard';
 import FriendReceivedCard from './friendReceivedCard';
-import styles from './friendsPending.module.css'
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
@@ -42,22 +41,22 @@ function FriendsPending() {
       
       <div><Navbar /></div>  
 
-      <div className={styles.pageContainer}>
+      <div>
         
-        <div className={styles.friendNavContainer}>
+        <div>
           <FriendNavBar />
         </div>
 
-        <div class={styles.friendsBlockRight}>
+        <div>
           
-          <div class={styles.headingBackground}>
-            <div class={styles.receivedContainer}>
+          <div>
+            <div>
               <h1>Received Invites - {friendRequestReceived.length}</h1>
             </div>
           </div>
           
-          <div class={styles.bodyBackground}>
-            <div class={styles.bodyContainer}>
+          <div>
+            <div>
               {friendRequestReceived.map( (friendSent) => (
                 <FriendReceivedCard 
                   username={friendSent.username} 
@@ -68,14 +67,14 @@ function FriendsPending() {
             </div>
           </div>
 
-          <div class={styles.headingBackground}>
-            <div class={styles.pendingContainer}>
+          <div>
+            <div>
               <h1>Sent Invites - {friendRequestSent.length}</h1>
             </div>
           </div>
 
-          <div class={styles.bodyBackground}>
-            <div class={styles.bodyContainer}>
+          <div>
+            <div>
               {friendRequestSent.map( (friendSent) => (
                 <FriendSentCard 
                   username={friendSent.username} 

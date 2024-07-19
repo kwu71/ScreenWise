@@ -1,113 +1,83 @@
-import styles from './landingPage.module.css'
 import GetStartedBTN from '../../component/landingNav/getStartedBTN';
+import LeftImageTxt from '../../component/leftImageTxt';
+import RightImageTxt from '../../component/rightImageTxt';
 
 function LandingPage() {
   return (
     
     <div>
 
-      <div class={styles.navBackground}>
-        <nav class={styles.navContainer}>
-          <h1 class={styles.navTitle}>ScreenWise</h1>
-          <button class={styles.navLoginBTN}><a class={styles.navLoginTextBTN} href="http://localhost:5173/login">Login</a></button>
-        </nav>
-      </div>
-
-
-      <div class={styles.heroBackground}>
-        <div class={styles.heroContainer}>
-          <div class={styles.heroHeadingContainer}>
-            <h1 class={styles.heroH1}>Imagine a community...</h1>
-            <p class={styles.heroP}>Embark on a digital wellness journey with ScreenWise, an innovative app designed to transform your screen time management into a social and supportive experience. Whether you're striving for a healthier balance or simply looking for friends to help you on your journey, ScreenWise has got you covered!</p>
-            <div class={styles.heroStartBTN}><GetStartedBTN /></div>
-          </div>
+      <div className='w-full bg-slate-200 z-10'>
+        <div className='w-full max-w-6xl mx-auto py-4'>
+          <nav className='flex items-center justify-between'>
+            <h1 className='font-extrabold ml-8 xl:ml-0'>ScreenWise</h1>
+            <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+              <a href="http://localhost:5173/login" className='font-semibold'>
+                Login
+              </a>
+            </button>
+          </nav>
         </div>
       </div>
 
-      <div class={styles.landingSectionBackground}>
-          <div class={styles.revealable}>
-            <div class={`${styles.landingSection} ${styles.row}`}>
-              <div class={styles.imgContainer}>
-                <img class={styles.sectionImg} 
-                src="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-              <div class={styles.sectionText}>
-                <h1 class={styles.sectionHeader}>Keep Track</h1>
-                <p class={styles.sectionP}>        
-                  ScreenWise allows you to input the amount of hours you have used social media then displays a graph for the week.
-                </p>
-              </div>
-            </div>
+
+      <div className='w-full bg-slate-300 py-64'>
+        <div className='w-full max-w-6xl mx-auto'>
+          <div className='px-8 text-center items-center'>
+            <h1 className='font-extrabold text-4xl'>Imagine a community...</h1>
+            <p className='mt-4 text-sm'>Embark on a digital wellness journey with ScreenWise, an innovative app designed to transform your screen time management into a social and supportive experience. Whether you're striving for a healthier balance or simply looking for friends to help you on your journey, ScreenWise has got you covered!</p>
+            <div className='mt-14'><GetStartedBTN /></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+          
+          <LeftImageTxt 
+            img="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            header="Keep Track" 
+            text="ScreenWise allows you to input the amount of hours you have used social media then displays a graph for the week." 
+          />
+
+          <RightImageTxt
+            img="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            header="Learn ways to reduce screen time" 
+            text="ScreenWise has a built in tips board where you can learn about ways to reduce screen time!" 
+          />
+
+          <LeftImageTxt 
+            img="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            header="Create a community" 
+            text="Add your friends on ScreenWise and see where they are at through the day." 
+          />
+
+          <RightImageTxt
+            img="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            header="Keep each other accountable" 
+            text="ScreenWise creates a leaderboard for you and your friends based on screen time. Keep each other accountable!" 
+          />
+
+      </div>
+
+        <div className='w-full bg-slate-100 py-64'>
+          <div className='w-full max-w-6xl mx-auto text-center items-center'>
+            <h1 className='font-extrabold text-4xl'>Start your ScreenWise journey</h1>
+            <div className='mt-14'><GetStartedBTN /></div>
           </div>
         </div>
 
-      <div class={`${styles.landingSectionBackground} ${styles.sectionAlterClr}`}>
-          <div class={styles.revealable}>
-            <div class={`${styles.landingSection} ${styles.row}`}>
-              <div class={styles.sectionText}>
-                  <h1 class={styles.sectionHeader}>Learn ways to reduce screen time</h1>
-                  <p class={styles.sectionP}>        
-                    ScreenWise has a built in tips board where you can learn about ways to reduce screen time!
-                  </p>
-                </div>
-              <div class={styles.imgContainer}>
-                <img class={styles.sectionImg} 
-                src="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-            </div>
+        <footer className='w-full bg-slate-200 py-8'>
+          <div className='w-full max-w-6xl mx-auto'> 
+            <nav className='flex items-center justify-between'>
+              <h1 className='font-extrabold ml-8 xl:ml-0'>ScreenWise</h1>
+              <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+                <a href="http://localhost:5173/login" className='font-semibold'>
+                  Login
+                </a>
+              </button>
+            </nav>
           </div>
-        </div>
-
-        <div class={styles.landingSectionBackground}>
-          <div class={styles.revealable}>
-            <div class={`${styles.landingSection} ${styles.row}`}>
-              <div class={styles.imgContainer}>
-                <img class={styles.sectionImg} 
-                src="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-              <div class={styles.sectionText}>
-                <h1 class={styles.sectionHeader}>Create a community</h1>
-                <p class={styles.sectionP}>        
-                  Add your friends on ScreenWise and see where they are at through the day.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class={`${styles.landingSectionBackground} ${styles.sectionAlterClr}`}>
-          <div class={styles.revealable}>
-            <div class={`${styles.landingSection} ${styles.row}`}>
-              <div class={styles.sectionText}>
-                  <h1 class={styles.sectionHeader}>Keep each other accountable</h1>
-                  <p class={styles.sectionP}>        
-                    ScreenWise creates a leaderboard for you and your friends based on screen time. Keep each other accountable!
-                  </p>
-                </div>
-              <div class={styles.imgContainer}>
-                <img class={styles.sectionImg} 
-                src="https://images.unsplash.com/photo-1529519739370-53ce2aa5561a?auto=format&fit=crop&q=80&w=2970&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class={styles.endingSectionBackground}>
-          <div class={styles.endingSectionContainer}>
-            <h1 class={styles.endingSectionH1}>Start your ScreenWise journey</h1>
-            <div class={styles.endingBTN}><GetStartedBTN /></div>
-          </div>
-        </div>
-
-        <div class={styles.footerBackground}>
-          <div class={styles.footerElements}> 
-            <h1 class={styles.footerH1}>ScreenWise</h1>
-          </div>
-        </div>
+        </footer>
 
       </div>
       

@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 import useUserStore from '../../stores/userStore';
 
-import styles from './userProfile.module.css';
-
 function EditUserProfile () {
 
   const user = useUserStore((state) => state.user);
@@ -56,21 +54,21 @@ function EditUserProfile () {
 
   return (
       <div>
-        <div class={styles.formBackground}>
-          <form class={styles.formContainer} onSubmit={handleSubmit} >
+        <div>
+          <form onSubmit={handleSubmit} >
             
-            <div class={styles.formInputs}>
-              <p class={styles.formInputLabel}>Username </p>
-              <input class={styles.inputContainerUser} type="text" onChange={handleUsernameChange}/>
+            <div>
+              <p>Username </p>
+              <input type="text" onChange={handleUsernameChange}/>
             </div>
 
-            <div class={styles.formInputs}>
-            <p class={styles.formInputLabel}>Bio </p>
-            <textarea class={styles.formTextArea} rows="4" cols="50" maxLength="150" placeholder="Enter text here..." onChange={handleBioChange}></textarea>
+            <div>
+            <p>Bio </p>
+            <textarea rows="4" cols="50" maxLength="150" placeholder="Enter text here..." onChange={handleBioChange}></textarea>
             </div>
             
-            <div className={styles.flexContainer}>
-              <button class={styles.formBTNStyle} type="submit" >Save</button>
+            <div>
+              <button type="submit" >Save</button>
             </div>
           
           </form>
