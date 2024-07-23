@@ -1,5 +1,5 @@
 import Navbar from '../../component/navBar/navBar';
-import LeaderboardProp from './leaderboardProp';
+import LeaderboardProp from '../../component/leaderboardProp';
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
@@ -29,28 +29,33 @@ function Leaderboard() {
     <div>
         <div><Navbar /></div>
 
-        <div>
-          <h1>Screen Time Use</h1>
-          <p>Help your friends out and remind them to put down the phone sometimes!</p>
-        </div>
-
-        <div>
-          
-          <div>
-            <div>
-              <p>Rank</p>
-              <p>Username</p>
-            </div>
-            <div>
-              <p>Hours</p>
-            </div>
-          </div>
-
-          <div>
-            {leaderboardFriends.length === 0 && <h1>Currently no friends or hours!</h1>}
-            {leaderboardFriends.length >= 1 && leaderboardFriends.map((friend, index) => <LeaderboardProp rank={index + 1} username={friend.username} hours={friend.totalHours}/>)}
+        <div className='mt-20 mx-6'>
+          <div className='p-3 bg-slate-100 w-full max-w-6xl mx-auto rounded-lg'>
+            <h1 className='text-xl font-extrabold'>Screen Time Use</h1>
+            <p className='text-sm'>Help your friends out and remind them to put down the phone sometimes!</p>
           </div>
         </div>
+
+        <div className='mt-10 mx-6 mb-6'>
+          <div className='p-3 bg-slate-100 w-full max-w-6xl mx-auto rounded-lg'>
+            
+            <div className='flex justify-between'>
+              <div className='flex'>
+                <p className='font-extrabold'>Rank</p>
+                <p className='font-extrabold ml-10'>Username</p>
+              </div>
+              <div>
+                <p className='font-extrabold'>Hours</p>
+              </div>
+            </div>
+
+            <div>
+              {leaderboardFriends.length === 0 && <h1>Currently no friends or hours!</h1>}
+              {leaderboardFriends.length >= 1 && leaderboardFriends.map((friend, index) => <LeaderboardProp rank={index + 1} username={friend.username} hours={friend.totalHours}/>)}
+            </div>
+          </div>
+        </div>
+    
     </div>
   )
 }
