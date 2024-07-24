@@ -18,7 +18,7 @@ const useUserStore = create((set) => ({
       const serverResponse = await Axios.post(`http://localhost:3000/auth/logout`, { withCredentials: true });
       set({user: null});
       if(serverResponse.status === 200){
-        window.location.href = 'http://localhost:5173/login'
+        return;
       }
     } catch (error) {
       console.error('Error logging out', error);

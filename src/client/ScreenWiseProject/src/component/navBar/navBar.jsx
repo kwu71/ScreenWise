@@ -20,7 +20,7 @@ function Navbar() {
         <nav className='w-full bg-slate-200 z-10 hidden lg:block'>
           <div className='flex justify-between w-full max-w-6xl mx-auto py-4 items-center'>
             <div>
-              <Link to="/dashboard" className='font-extrabold ml-8 xl:ml-0'> 
+              <Link to="/dashboard" className='font-extrabold ml-4 xl:ml-0'> 
                 ScreenWise
               </Link>
             </div>
@@ -53,9 +53,9 @@ function Navbar() {
                 </ul>
             </div>
             <div>
-              <button onClick={logout} className='px-4 py-2 mr-8 xl:mr-0 font-semibold rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+              <Link to="/" onClick={logout} className='px-4 py-2 mr-4 xl:mr-0 font-semibold rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
                   Logout
-              </button>
+              </Link>
             </div>
           </div>
         </nav>
