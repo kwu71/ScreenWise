@@ -50,7 +50,7 @@ function Leaderboard() {
             </div>
 
             <div>
-              {leaderboardFriends.length === 0 && <h1>Currently no friends or hours!</h1>}
+              {leaderboardFriends.length === 0 && <h1 className='text-center my-10 text-2xl font-extrabold'>Currently no hours have been input!</h1>}
               {leaderboardFriends.length >= 1 && leaderboardFriends.map((friend, index) => <LeaderboardProp rank={index + 1} username={friend.username} hours={friend.totalHours}/>)}
             </div>
           </div>

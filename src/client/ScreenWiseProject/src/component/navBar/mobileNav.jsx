@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import useUserStore from '../../stores/userStore';
 import { Link } from 'react-router-dom';
-import MobileNav from './mobileNav';
 
-function Navbar() {
-
-  const [screenType, setScreenType] = useState("");
+function MobileNav() {
 
   const logout = useUserStore((state) => state.logout);
   const user = useUserStore((state) => state.user);
@@ -16,8 +13,7 @@ function Navbar() {
 
   return(
     <div>
-        <MobileNav />
-        <nav className='w-full bg-slate-200 z-10 hidden lg:block'>
+        <nav className='w-full bg-slate-200 z-10 block lg:hidden'>
           <div className='flex justify-between w-full max-w-6xl mx-auto py-4 items-center'>
             <div>
               <Link to="/dashboard" className='font-extrabold ml-8 xl:ml-0'> 
@@ -63,4 +59,4 @@ function Navbar() {
   )
 }
 
-export default Navbar;
+export default MobileNav;
