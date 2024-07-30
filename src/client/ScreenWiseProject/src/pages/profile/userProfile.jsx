@@ -46,7 +46,11 @@ function UserProfile () {
             <div className='mb-10'>
               <p className='font-semibold text-3xl'>Bio </p>
                 {bio.length <= 0 && <p> No bio yet! </p>}
-                {bio.length > 0  && <p> {bio} </p>}
+                {bio.length > 0  &&             
+                  <div className='overflow-y-auto max-h-[200px]'>
+                    <p>{bio}</p>
+                  </div>
+                }
             </div>
             
             <div>
