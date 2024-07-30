@@ -36,22 +36,18 @@ function friendCard(props) {
   }
 
   return(
-    <div>
-
-      <div>
-        <div key={props.id}>
-          <p>@{props.username}</p>
-          <div>
+    <div className='bg-slate-300 p-2 rounded'>
+      <div className='flex flex-col items-center'>
+        <div key={props.id} className='flex'>
+          <p className='mr-2'>@{props.username}</p>
             <button onClick={handleAddDelete} > 
-              <TiDelete /> 
+              <TiDelete className='h-7 w-7' /> 
             </button>
             <button onClick={handleAdd} > 
-              <CiCircleCheck />
+              <CiCircleCheck className='h-6 w-6'/>
             </button>
-          </div>
         </div>
       </div>
-
     </div>
   )
 }

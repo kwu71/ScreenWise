@@ -26,17 +26,15 @@ function friendSentCard(props) {
   },[user])
   
   return(
-    <div>
-
-      <div>
-        <div key={props.id}>
+    <div className='bg-slate-300 p-2 rounded'>
+      <div className='flex flex-col items-center'>
+        <div key={props.id} className='flex'>
           <p>@{props.username}</p>
           <button onClick={handleDelete} > 
-            <TiDelete /> 
+            <TiDelete className='h-7 w-7'/> 
           </button>
         </div>
       </div>
-
     </div>
   )
 }
