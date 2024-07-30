@@ -63,9 +63,9 @@ function EditUserProfile () {
             </div>
 
             <div className='mb-10'>
-            <p className='font-semibold text-3xl'>Bio</p>
-            <p className='text-sm mb-2'>Max 150 characters</p>
-            <textarea rows="4" cols="50" maxLength="150" placeholder="Enter text here..." onChange={handleBioChange} className='rounded py-1 px-2 max-w-[225px]'></textarea>
+              <p className='font-semibold text-3xl'>Bio</p>
+              <p className='text-sm mb-2'>Max 150 characters</p>
+              <textarea rows="4" cols="50" maxLength="150" placeholder="Enter text here..." onChange={handleBioChange} className='rounded py-1 px-2 max-w-[225px]'></textarea>
             </div>
             
             <div>
