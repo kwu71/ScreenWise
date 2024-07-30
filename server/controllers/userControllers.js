@@ -278,6 +278,27 @@ const getFriendsList = async(req, res) => {
   }
 }
 
+const getFriendId = async(req, res) => {
+  try {
+    
+    const { userId } = req.params;
+
+    console.log("At User")
+    // Find the user by userId
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    console.log("Done")
+    res.status(200).json({ friendId: user._id });
+
+  } catch (error) {
+    
+  }
+}
+
 const deleteFriendSent = async(req, res) => {
   console.log("Got Response")
   try {
@@ -581,4 +602,4 @@ const changeUsername = async (req, res) => {
   }
 }
 
-export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, deleteFriendSent, deleteFriendReceived, addFriendReceived, getLeaderboard, getBio, getUsername, changeBio, changeUsername};
+export { addHours, getHours, addFriend, getFriendsSent, getFriendsRequested, getFriendsList, getFriendId, deleteFriendSent, deleteFriendReceived, addFriendReceived, getLeaderboard, getBio, getUsername, changeBio, changeUsername};

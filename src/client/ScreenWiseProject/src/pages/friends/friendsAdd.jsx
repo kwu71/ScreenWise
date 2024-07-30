@@ -8,6 +8,7 @@ import useUserStore from '../../stores/userStore';
 function FriendsAdd() {
 
   const [friendUsername, setUsername] = useState("");
+  const [friendId, setID] = useState("");
   const [isPending, setPending] = useState(false);
   const user = useUserStore((state) => state.user);
 
@@ -30,8 +31,20 @@ function FriendsAdd() {
     }
   }
 
-  useEffect(() => {
+  const getFriendId = async () => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/users/getFriendId/${user._id}`);
+      console.log(response.data.friendId);
+      setID(response.data.friendId);
+    } catch (error) {
+      
+    }
+  }
 
+  useEffect(() => {
+    if(user !== null){
+      getFriendId();
+    }
   }, [user]);
 
 
@@ -46,11 +59,14 @@ function FriendsAdd() {
               <div className='my-10'>
                 <h1 className='font-bold text-2xl'>Add a Friend!</h1>
                 <p>You can add people on ScreenWise with their username!</p>
+                <p>Your friend id: {friendId}</p>
               </div>
 
               <div className='mb-10'>
                 <form onSubmit={handleSubmit}>
-                  <input type="text" placeholder='@username' value={friendUsername} onChange={handleNumberChange}/>
+                  <div className='mx-4'>
+                    <input type="text" placeholder='@username' value={friendUsername} onChange={handleNumberChange} className='rounded py-1 px-2 w-full max-w-lg'/>
+                  </div>
                   {!isPending && 
                 <>
                 <div className='flex items-center justify-center mt-10'>
