@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 * {
+  /*
   outline: 1px dashed red;
+  */
 }

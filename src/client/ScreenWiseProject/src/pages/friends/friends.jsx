@@ -9,7 +9,6 @@ import useUserStore from '../../stores/userStore';
 function FriendsAll() {
 
   const [friendsList, setFriendsList] = useState([]);
-  const [rankNumber, setRankNumber] = useState(1);
   const user = useUserStore((state) => state.user);
 
   const getFriendsList = async () => {
@@ -32,17 +31,19 @@ function FriendsAll() {
       <Navbar />
       
       <div className="flex-grow">
-        <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-[88vh]'>
-          <div>
+        <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto'>
+          <div className='w-full max-w-5xl text-center bg-slate-200 shadow-lg rounded'>
             <div>
-              <h1>All Friends - {friendsList.length}</h1>
+              <div className='mt-10'>
+                <h1 className='mb-10 font-bold text-2xl'>All Friends - {friendsList.length}</h1>
+              </div>
             </div>
-          </div>
-          <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-5'>
-              {friendsList.map((friendSent) => (
-                <FriendCard key={friendSent._id} username={friendSent.username} id={friendSent._id} />
-              ))}
+            <div className='mb-10'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-5'>
+                {friendsList.map((friendSent) => (
+                  <FriendCard key={friendSent._id} username={friendSent.username} id={friendSent._id} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
