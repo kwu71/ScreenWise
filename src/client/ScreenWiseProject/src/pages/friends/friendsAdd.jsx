@@ -36,24 +36,16 @@ function FriendsAdd() {
 
 
   return(
-    <div>
-      
-      <div><Navbar /></div>  
-
-      <div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar /> 
         
-        <div>
-          <FriendNavBar />
-        </div>
-        
-        <div>
-        
+        <div className="flex-grow">
+          <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-[88vh]'>
             <div>
-              <div>
-                <h1>Add a Friend!</h1>
-                <p>You can add people on ScreenWise with their username!</p>
-              </div>
+              <h1>Add a Friend!</h1>
+              <p>You can add people on ScreenWise with their username!</p>
             </div>
+          
 
             <div>
               <form onSubmit={handleSubmit}>
@@ -62,10 +54,10 @@ function FriendsAdd() {
                 {isPending && <button type="submit" disabled>Sending Request...</button>}
               </form>
             </div>
-        
+          </div>
         </div>
-
-      </div>
+        
+      <FriendNavBar />
     </div>
   )
 }

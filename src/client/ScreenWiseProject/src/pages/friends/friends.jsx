@@ -28,32 +28,27 @@ function FriendsAll() {
   }, [user]);
 
   return(
-    <div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
       
-      <div><Navbar /></div>  
-
-      <div>
-        
-        <div>
-          <FriendNavBar />
-        </div>
-        
-        <div>
+      <div className="flex-grow">
+        <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-[88vh]'>
           <div>
             <div>
               <h1>All Friends - {friendsList.length}</h1>
             </div>
           </div>
           <div>
-            <div>
-              {friendsList.map( (friendSent) => (
-                  <FriendCard username={friendSent.username} id={friendSent._id}/>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-5'>
+              {friendsList.map((friendSent) => (
+                <FriendCard key={friendSent._id} username={friendSent.username} id={friendSent._id} />
               ))}
             </div>
           </div>
         </div>
-
       </div>
+
+      <FriendNavBar />
     </div>
   )
 }
