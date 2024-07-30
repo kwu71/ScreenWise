@@ -54,21 +54,22 @@ function EditUserProfile () {
 
   return (
       <div>
-        <div>
-          <form onSubmit={handleSubmit} >
+        <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-[75vh]'>
+          <form onSubmit={handleSubmit} className='w-full max-w-xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
             
-            <div>
-              <p>Username </p>
-              <input type="text" onChange={handleUsernameChange}/>
+            <div className='mb-10'>
+              <p className='font-semibold text-3xl mb-2'>Username </p>
+              <input type="text" onChange={handleUsernameChange} className='rounded py-1 px-2'/>
             </div>
 
-            <div>
-            <p>Bio </p>
-            <textarea rows="4" cols="50" maxLength="150" placeholder="Enter text here..." onChange={handleBioChange}></textarea>
+            <div className='mb-10'>
+            <p className='font-semibold text-3xl'>Bio</p>
+            <p className='text-sm mb-2'>Max 150 characters</p>
+            <textarea rows="4" cols="50" maxLength="150" placeholder="Enter text here..." onChange={handleBioChange} className='rounded py-1 px-2'></textarea>
             </div>
             
             <div>
-              <button type="submit" >Save</button>
+              <button type="submit" className='px-4 py-2 font-semibold rounded-lg bg-slate-200 transition ease-in-out delay-[50ms] hover:bg-slate-300'>Save</button>
             </div>
           
           </form>

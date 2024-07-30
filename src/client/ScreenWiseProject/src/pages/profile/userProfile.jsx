@@ -35,27 +35,25 @@ function UserProfile () {
   },[user])
 
   return (
-      <div>
-        <div>
-          <form action="http://localhost:5173/dashboard" >
+      <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-[75vh]'>
+        <div className='w-full max-w-xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
             
-            <div>
-              <p>Username </p>
+            <div className='mb-10'>
+              <p className='font-semibold text-3xl'>Username </p>
               <p>{username}</p>
             </div>
 
-            <div>
-              <p>Bio </p>
+            <div className='mb-10'>
+              <p className='font-semibold text-3xl'>Bio </p>
                 {bio.length <= 0 && <p> No bio yet! </p>}
                 {bio.length > 0  && <p> {bio} </p>}
             </div>
             
             <div>
-              <Link to="/edit-profile" >Edit</Link>
-              <button type="submit" >Done</button>
+              <Link to="/edit-profile" className='px-4 py-2 mr-10 font-semibold rounded-lg bg-slate-200 transition ease-in-out delay-[50ms] hover:bg-slate-300'>Edit</Link>
+              <Link to="/dashboard" className='px-4 py-2 font-semibold rounded-lg bg-slate-200 transition ease-in-out delay-[50ms] hover:bg-slate-300'>Done</Link>
             </div>
           
-          </form>
         </div>
       </div>
   )
