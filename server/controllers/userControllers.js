@@ -104,4 +104,4 @@ const changeUsername = async (req, res) => {
   }
 }
 
-export { getLeaderboard, getBio, getUsername, changeBio, changeUsername};
+export {getBio, getUsername, changeBio, changeUsername};

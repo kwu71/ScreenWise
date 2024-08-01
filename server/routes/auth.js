@@ -12,9 +12,9 @@ router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 
 router.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/' }),
   (req, res) => {
-    res.redirect('/dashboard');
+    res.redirect('http://localhost:5173/dashboard');
   }
 )
 
