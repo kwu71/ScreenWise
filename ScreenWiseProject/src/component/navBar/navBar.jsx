@@ -1,12 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import useUserStore from '../../stores/userStore';
-import { Link } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 import MobileNav from './mobileNav';
 
 function Navbar() {
 
   const logout = useUserStore((state) => state.logout);
   const user = useUserStore((state) => state.user);
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    await logout();
+    navigate('/');
+  };
 
   useEffect(() => {
 
@@ -51,9 +58,9 @@ function Navbar() {
                 </ul>
             </div>
             <div>
-              <Link to="/" onClick={logout} className='px-4 py-2 mr-4 xl:mr-0 font-semibold rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+              <button onClick={handleLogout} className='px-4 py-2 mr-4 xl:mr-0 font-semibold rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
                   Logout
-              </Link>
+              </button>
             </div>
           </div>
         </nav>
