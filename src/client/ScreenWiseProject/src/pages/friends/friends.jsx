@@ -1,6 +1,6 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
-import FriendCard from './friendCard';
+import FriendCard from '../../component/friends/friendCard';
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';

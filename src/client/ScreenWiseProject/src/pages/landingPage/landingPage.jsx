@@ -1,6 +1,6 @@
 import GetStartedBTN from '../../component/landingNav/getStartedBTN';
-import LeftImageTxt from '../../component/leftImageTxt';
-import RightImageTxt from '../../component/rightImageTxt';
+import LeftImageTxt from '../../component/landing/leftImageTxt'
+import RightImageTxt from '../../component/landing/rightImageTxt';
 
 function LandingPage() {
   return (

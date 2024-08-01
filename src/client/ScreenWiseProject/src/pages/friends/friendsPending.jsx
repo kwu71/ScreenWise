@@ -1,7 +1,7 @@
 import FriendNavBar from '../../component/friendNav/friendNavBar';
 import Navbar from '../../component/navBar/navBar';
-import FriendSentCard from './friendSentCard';
-import FriendReceivedCard from './friendReceivedCard';
+import FriendSentCard from '../../component/friends/friendSentCard';
+import FriendReceivedCard from '../../component/friends/friendReceivedCard';
 
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
