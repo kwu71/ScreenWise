@@ -5,8 +5,6 @@ import MobileNav from './mobileNav';
 
 function Navbar() {
 
-  const [screenType, setScreenType] = useState("");
-
   const logout = useUserStore((state) => state.logout);
   const user = useUserStore((state) => state.user);
 
