@@ -18,7 +18,7 @@ const useUserStore = create((set) => ({
 
   logout: async () => {
     try {
-      const serverResponse = await Axios.post(`http://localhost:3000/auth/logout`, { withCredentials: true });
+      const serverResponse = await Axios.get(`http://localhost:3000/auth/logout`, { withCredentials: true });
       if(serverResponse.status === 200){
         set({user: null});
       }

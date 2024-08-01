@@ -22,8 +22,8 @@ router.get('/profile', isAuthenticated, (req, res) => {
   return res.json(req.user);
 });
 
-router.post('/logout', function(req, res, next){
-  req.logOut((err) => {
+router.get('/logout', function(req, res, next){
+  req.session.destroy(function (err) {
     if (err) {
       return next(err);
     } else {

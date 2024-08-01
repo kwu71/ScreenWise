@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import useUserStore from '../../stores/userStore';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FaBars } from "react-icons/fa6";
 import { FaXmark } from "react-icons/fa6";
 
@@ -10,6 +10,14 @@ function MobileNav() {
   const logout = useUserStore((state) => state.logout);
   const user = useUserStore((state) => state.user);
   const [toggle, setToggle] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    await logout();
+    navigate('/');
+  };
 
   const toggleFunction = () => {
     if(toggle === false) {
@@ -62,9 +70,9 @@ function MobileNav() {
                       {user == null  && <Link to="/profile" className='font-semibold transition ease-in-out delay-[50ms] hover:text-blue-600'>@username</Link>}
                   </li>
                   <li className='px-4 pt-3 pb-8'>
-                    <Link to="/" onClick={logout} className='px-4 py-2 font-semibold rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
-                      Logout
-                    </Link>
+                    <button onClick={handleLogout} className='px-4 py-2 xl:mr-0 font-semibold rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
+                    Logout
+                    </button>
                   </li>
                 </ul>
             }
