@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import React, {useEffect} from 'react';
+import ProtectedRoute from './component/core/ProtectedRoute';
+
 import LandingPage from './pages/landingPage/landingPage'
 import Login from './pages/login/login'
 import Dashboard from './pages/dashboard/dashboard'
@@ -15,7 +17,6 @@ import EditUserProfile from './pages/profile/editUserProfile';
 import useUserStore from './stores/userStore';
 
 function App() {
-
   const fetchUser = useUserStore((state) => state.fetchUser);
 
   useEffect(() => {
@@ -29,14 +30,42 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="/" element= {<LandingPage />}/>
           <Route path="/login" element= {<Login />}/>
-          <Route path="/dashboard" element= {<Dashboard />}/>
-          <Route path="/tips" element= {<Tips />}/>
-          <Route path="/leaderboard" element= {<Leaderboard />}/>
-          <Route path="/friends-all" element= {<FriendsAll />}/>
-          <Route path="/friends-pending" element= {<FriendsPending />}/>
-          <Route path="/friends-add" element= {<FriendsAdd />}/>
-          <Route path="/profile" element= {<UserProfile />}/>
-          <Route path="/edit-profile" element= {<EditUserProfile />}/>
+          <Route 
+            path="/dashboard" 
+            element= {
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/tips" element= {
+            <ProtectedRoute>
+              <Tips />
+            </ProtectedRoute>}/>
+          <Route path="/leaderboard" element= {
+            <ProtectedRoute>
+              <Leaderboard />
+            </ProtectedRoute>}/>
+          <Route path="/friends-all" element= {
+            <ProtectedRoute>
+              <FriendsAll />
+            </ProtectedRoute>}/>
+          <Route path="/friends-pending" element= {
+            <ProtectedRoute>
+              <FriendsPending />
+            </ProtectedRoute>}/>
+          <Route path="/friends-add" element= {
+            <ProtectedRoute>
+              <FriendsAdd />
+            </ProtectedRoute>}/>
+          <Route path="/profile" element= {
+            <ProtectedRoute>
+              <UserProfile />
+            </ProtectedRoute>}/>
+          <Route path="/edit-profile" element= {
+            <ProtectedRoute>
+              <EditUserProfile />
+            </ProtectedRoute>}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -21,8 +21,8 @@ const app = express();
 // Middleware Setup
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173', // Frontend origin
-  credentials: true // Allow credentials (e.g., cookies)
+  origin: 'http://localhost:5173',
+  credentials: true
 }));
 app.use(helmet());
 app.use(morgan('dev'));
@@ -32,7 +32,10 @@ app.use(session({
   secret: process.env.COOKIESECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: { 
+    secure: false,
+    maxAge: 24 * 60 * 60 * 1000
+  }
 }));
 
 // Passport Setup
