@@ -10,7 +10,7 @@ function LandingPage() {
       <div className='w-full bg-slate-200 z-10'>
         <div className='w-full max-w-6xl mx-auto py-4'>
           <nav className='flex items-center justify-between'>
-            <h1 className='font-extrabold ml-8 xl:ml-0'>ScreenWise</h1>
+            <h1 className='font-extrabold text-2xl ml-8 xl:ml-0'>ScreenWise</h1>
             <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
               <a href="http://localhost:5173/login" className='font-semibold'>
                 Login
@@ -24,7 +24,7 @@ function LandingPage() {
       <div className='w-full bg-slate-300 py-64'>
         <div className='w-full max-w-6xl mx-auto'>
           <div className='px-8 text-center items-center'>
-            <h1 className='font-extrabold text-4xl'>Imagine a community...</h1>
+            <h1 className='font-extrabold text-4xl md:text-6xl'>Imagine a community...</h1>
             <p className='mt-4 text-sm'>Embark on a digital wellness journey with ScreenWise, an innovative app designed to transform your screen time management into a social and supportive experience. Whether you're striving for a healthier balance or simply looking for friends to help you on your journey, ScreenWise has got you covered!</p>
             <div className='mt-14'><GetStartedBTN /></div>
           </div>
@@ -69,7 +69,7 @@ function LandingPage() {
         <footer className='w-full bg-slate-200 py-8'>
           <div className='w-full max-w-6xl mx-auto'> 
             <nav className='flex items-center justify-between'>
-              <h1 className='font-extrabold ml-8 xl:ml-0'>ScreenWise</h1>
+              <h1 className='font-extrabold text-2xl ml-8 xl:ml-0'>ScreenWise</h1>
               <button className='px-4 py-2 mr-8 xl:mr-0 rounded-lg bg-slate-100 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
                 <a href="http://localhost:5173/login" className='font-semibold'>
                   Login

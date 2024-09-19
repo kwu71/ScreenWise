@@ -11,8 +11,8 @@ function LeftImageTxt (props) {
           />
         </div>
         <div className="text-left p-4 order-1 md:order-none">
-          <h1 className="font-extrabold text-5xl">{props.header}</h1>
-          <p className="mt-4">        
+          <h1 className="font-extrabold text-4xl md:text-6xl">{props.header}</h1>
+          <p className="mt-4 text-lg md:text-2xl">        
             {props.text}
           </p>
         </div>

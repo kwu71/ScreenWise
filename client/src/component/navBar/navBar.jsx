@@ -25,7 +25,7 @@ function Navbar() {
         <nav className='w-full bg-slate-200 z-10 hidden lg:block'>
           <div className='flex justify-between w-full max-w-6xl mx-auto py-4 items-center'>
             <div>
-              <Link to="/dashboard" className='font-extrabold ml-4 xl:ml-0'> 
+              <Link to="/dashboard" className='font-extrabold ml-4 xl:ml-0 text-2xl'> 
                 ScreenWise
               </Link>
             </div>
