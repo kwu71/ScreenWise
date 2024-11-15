@@ -6,7 +6,7 @@ const getLeaderboard = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    console.log("At User")
+
     // Find the user by userId
     const user = await User.findById(userId);
     

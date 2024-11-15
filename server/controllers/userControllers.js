@@ -45,9 +45,6 @@ const changeBio = async (req, res) => {
     const { userId } = req.params;
     const { newBio } = req.body;
 
-    console.log(newBio);
-
-    console.log("At User")
     // Find the user by userId
     const user = await User.findById(userId);
     
@@ -65,7 +62,6 @@ const changeBio = async (req, res) => {
     await user.save();
 
     return res.status(200).json({ message: "Bio updated successfully" });
-    console.log("Done")
     
   } catch (error) {
     
@@ -77,9 +73,6 @@ const changeUsername = async (req, res) => {
     const { userId } = req.params;
     const { newUsername } = req.body;
 
-    console.log(newUsername);
-
-    console.log("At User")
     // Find the user by userId
     const user = await User.findById(userId);
     
@@ -97,7 +90,6 @@ const changeUsername = async (req, res) => {
     await user.save();
 
     return res.status(200).json({ message: "Username updated successfully" });
-    console.log("Done")
     
   } catch (error) {
     

@@ -3,13 +3,11 @@ import User from '../model/user.js';
 // Friends List
 
 const addFriend = async(req, res) => {
-  console.log("Got Response")
   try {
     
     const { userId } = req.params;
     const { friendID } = req.body;
 
-    console.log("At user")
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -17,7 +15,6 @@ const addFriend = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    console.log("At friend")
     const findFriendID = await User.findById(friendID); 
 
     if (!findFriendID) {
@@ -26,12 +23,10 @@ const addFriend = async(req, res) => {
 
 
     // Maps the userIDOfFriends for the user that is sending then checks if they have already sent a request.
-    console.log("checks if they have already sent a request")
     const friendMap = user.friendSent.map( (arrayElement) => {
       return arrayElement.userIdOfFriend;
     })
 
-    console.log(friendMap)
     for(let i = 0; i < friendMap.length; i++){
       if(friendMap[i].equals(friendID)){
         return res.status(404).json({ error: "Friend request was already sent" });
@@ -39,12 +34,10 @@ const addFriend = async(req, res) => {
     }
 
     // I also want to check if the user has already gotten a request from the person they want to sent to
-    console.log("check if the user has already gotten a request from the person")
     const friendMapReceived = user.friendReceived.map( (arrayElement) => {
       return arrayElement.userIdOfFriend;
     })
 
-    console.log(findFriendID)
     for(let i = 0; i < friendMapReceived.length; i++){
       if(friendMapReceived[i].equals(friendID)){
         return res.status(404).json({ error: "The user has already sent a request to you" });
@@ -52,7 +45,6 @@ const addFriend = async(req, res) => {
     }
 
     // I also want to check if they are already friends
-    console.log("check if they are already friends")
     const friendsListMap = user.friendList.map( (arrayElement) => {
       return arrayElement.userIdOfFriend;
     })
@@ -63,7 +55,7 @@ const addFriend = async(req, res) => {
       }
     }
 
-    console.log("Pushing")
+
     user.friendSent.push({ userIdOfFriend: friendID});
     findFriendID.friendReceived.push({userIdOfFriend: user});
     
@@ -72,19 +64,19 @@ const addFriend = async(req, res) => {
     await findFriendID.save();
 
     res.status(200).json({ message: "Friend Request sent successfully" });
-    console.log("Done")
+
   } catch (error) {
     return res.status(404).json({ error: "Could not add friend" });
   }
 };
 
 const getFriendsSent = async(req, res) => {
-  console.log("Got Response")
+
   try {
     
     const { userId } = req.params;
 
-    console.log("At User")
+
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -100,7 +92,7 @@ const getFriendsSent = async(req, res) => {
 
     }
 
-    console.log("Done")
+
     res.status(200).json({arrayOfUserModels});
   } catch (error) {
     return res.status(404).json({ error: "Could not get friends sent" });
@@ -112,7 +104,6 @@ const getFriendsRequested = async(req, res) => {
     
     const { userId } = req.params;
 
-    console.log("At User")
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -128,7 +119,7 @@ const getFriendsRequested = async(req, res) => {
 
     }
 
-    console.log("Done")
+
     res.status(200).json({arrayOfUserModels});
 
   } catch (error) {
@@ -141,7 +132,7 @@ const getFriendsList = async(req, res) => {
     
     const { userId } = req.params;
 
-    console.log("At User")
+
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -157,7 +148,7 @@ const getFriendsList = async(req, res) => {
 
     }
 
-    console.log("Done")
+
     res.status(200).json({arrayOfUserModels});
 
   } catch (error) {
@@ -170,7 +161,7 @@ const getFriendId = async(req, res) => {
     
     const { userId } = req.params;
 
-    console.log("At User")
+
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -178,7 +169,7 @@ const getFriendId = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    console.log("Done")
+
     res.status(200).json({ friendId: user._id });
 
   } catch (error) {
@@ -187,13 +178,13 @@ const getFriendId = async(req, res) => {
 }
 
 const deleteFriendSent = async(req, res) => {
-  console.log("Got Response")
+
   try {
     
     const { userId } = req.params;
     const { friendID } = req.body;
 
-    console.log("At user")
+
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -201,14 +192,14 @@ const deleteFriendSent = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    console.log("At friend")
+
     const findFriendID = await User.findById(friendID); 
 
     if (!findFriendID) {
       return res.status(404).json({ error: "Friend not found" });
     }
 
-    console.log("At for")
+
     for(let i = 0; i < user.friendSent.length; i++){
       if(user.friendSent[i].userIdOfFriend.equals(friendID)){
         user.friendSent.pull({ userIdOfFriend: friendID});
@@ -221,20 +212,20 @@ const deleteFriendSent = async(req, res) => {
     await findFriendID.save();
 
     res.status(200).json({ message: "Friend Request delete successfully" });
-    console.log("Done")
+
   } catch (error) {
     return res.status(404).json({ error: "Could not delete friend" });
   }
 }
 
 const deleteFriendReceived = async(req, res) => {
-  console.log("Got Response")
+
   try {
     
     const { userId } = req.params;
     const { friendID } = req.body;
 
-    console.log("At user")
+
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -242,14 +233,14 @@ const deleteFriendReceived = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    console.log("At friend")
+
     const findFriendID = await User.findById(friendID); 
 
     if (!findFriendID) {
       return res.status(404).json({ error: "Friend not found" });
     }
 
-    console.log("At for")
+
     for(let i = 0; i < user.friendReceived.length; i++){
       if(user.friendReceived[i].userIdOfFriend.equals(friendID)){
         user.friendReceived.pull({ userIdOfFriend: friendID});
@@ -262,20 +253,20 @@ const deleteFriendReceived = async(req, res) => {
     await findFriendID.save();
 
     res.status(200).json({ message: "Friend Request delete successfully" });
-    console.log("Done")
+
   } catch (error) {
     return res.status(404).json({ error: "Could not delete friend" });
   }
 }
 
 const addFriendReceived = async(req, res) => {
-  console.log("Got Response")
+
   try {
     
     const { userId } = req.params;
     const { friendID } = req.body;
 
-    console.log("At user")
+
     // Find the user by userId
     const user = await User.findById(userId);
 
@@ -283,14 +274,14 @@ const addFriendReceived = async(req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    console.log("At friend")
+
     const findFriendID = await User.findById(friendID); 
 
     if (!findFriendID) {
       return res.status(404).json({ error: "Friend not found" });
     }
 
-    console.log("Pushing")
+
     user.friendList.push({ userIdOfFriend: friendID});
     findFriendID.friendList.push({userIdOfFriend: user});
     
@@ -299,7 +290,7 @@ const addFriendReceived = async(req, res) => {
     await findFriendID.save();
 
     res.status(200).json({ message: "Friend Request delete successfully" });
-    console.log("Done")
+
   } catch (error) {
     return res.status(404).json({ error: "Could not delete friend" });
   }
