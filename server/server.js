@@ -21,7 +21,7 @@ const app = express();
 // Middleware Setup
 app.use(express.json());
 app.use(cors({
-  origin: 'https://screen-wise.vercel.app/',
+  origin: 'https://screen-wise.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -34,7 +34,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: { 
-    secure: false,
+    secure: true,
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
