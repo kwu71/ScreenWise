@@ -14,6 +14,10 @@ router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: 'https://screen-wise.vercel.app/' }),
   (req, res) => {
+    res.set({
+      'Access-Control-Allow-Origin': 'https://screen-wise.vercel.app',
+      'Access-Control-Allow-Credentials': 'true'
+    });
     res.redirect('https://screen-wise.vercel.app/dashboard');
   }
 )
