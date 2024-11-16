@@ -23,10 +23,11 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: 'https://screen-wise.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Access-Control-Allow-Origin', 'Access-Control-Allow-Credentials'],
   credentials: true
 }));
+
 app.use(
   helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" },
