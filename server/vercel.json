@@ -10,5 +10,14 @@
     { "src": "/auth/(.*)", "dest": "server.js" },
     { "src": "/api/(.*)", "dest": "server.js" },
     { "src": "/(.*)", "dest": "server.js" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://screen-wise.vercel.app" } // Your frontend URL
+      ]
+    }
   ]
 }
