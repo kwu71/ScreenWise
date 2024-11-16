@@ -4,6 +4,7 @@ import express from 'express';
 import passport from './config/passport.js';
 import session from 'express-session';
 import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -33,9 +34,14 @@ app.use(session({
   secret: process.env.COOKIESECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { 
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL,
+    ttl: 14 * 24 * 60 * 60
+  }),
+  cookie: {
     secure: true,
-    maxAge: 24 * 60 * 60 * 1000
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
   }
 }));
 
