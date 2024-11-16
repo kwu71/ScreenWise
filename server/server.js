@@ -22,6 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: 'https://screen-wise.vercel.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 app.use(helmet());
