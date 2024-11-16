@@ -12,7 +12,7 @@ function friendSentCard(props) {
     try {
       const dataToSend = {friendID : props.id}
       console.log(dataToSend);
-      const response = await Axios.delete(`http://localhost:3000/api/users/deleteFriendSent/${user._id}`, {
+      const response = await Axios.delete(`https://screen-wise-ntsk.vercel.app/api/users/deleteFriendSent/${user._id}`, {
         data: dataToSend
       });
       props.onDelete();

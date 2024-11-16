@@ -15,7 +15,7 @@ function FriendsPending() {
   
   const getFriendsSent = async() => {
     try {
-      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsSent/${user._id}`);
+      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getFriendsSent/${user._id}`);
       setFriendsSent(response.data.arrayOfUserModels);
     } catch (error) {
       
@@ -23,7 +23,7 @@ function FriendsPending() {
   }
   const getFriendsRequested = async() => {
     try {
-      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsRequested/${user._id}`);
+      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getFriendsRequested/${user._id}`);
       setFriendsRequested(response.data.arrayOfUserModels);
     } catch (error) {
       

@@ -12,7 +12,7 @@ function UserProfile () {
 
   const fetchBio = async () => {
     try {
-      const bioData = await Axios.get(`http://localhost:3000/api/users/getBio/${user._id}`);
+      const bioData = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getBio/${user._id}`);
       setBio(bioData.data); 
     } catch (error) {
       
@@ -21,7 +21,7 @@ function UserProfile () {
 
   const fetchUsername = async () => {
     try {
-      const usernameData = await Axios.get(`http://localhost:3000/api/users/getUsername/${user._id}`);
+      const usernameData = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getUsername/${user._id}`);
       setUsername(usernameData.data); 
       console.log(usernameData.data);
     } catch (error) {

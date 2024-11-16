@@ -9,7 +9,7 @@ function login() {
               <p className='text-md'>Glad to see you again</p>
             </div>
             <button className='px-4 py-2 mt-8 rounded-lg bg-slate-200 transition ease-in-out delay-[50ms] hover:bg-slate-300'>
-              <a href="http://localhost:3000/auth/google" className='font-semibold'>
+              <a href="https://screen-wise-ntsk.vercel.app/auth/google" className='font-semibold'>
                 Login With Google
               </a>
             </button>

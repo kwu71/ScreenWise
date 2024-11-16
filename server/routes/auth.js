@@ -12,9 +12,9 @@ router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 
 router.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/' }),
+  passport.authenticate('google', { failureRedirect: 'https://screen-wise.vercel.app/' }),
   (req, res) => {
-    res.redirect('http://localhost:5173/dashboard');
+    res.redirect('https://screen-wise.vercel.app/dashboard');
   }
 )
 

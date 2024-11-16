@@ -21,7 +21,7 @@ function Dashboard() {
   const getScreenTime = async () => {
     try {
       setPendingTime(true);
-      const response = await Axios.get(`http://localhost:3000/api/users/getTotalTime/${user._id}`);
+      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getTotalTime/${user._id}`);
       setScreenTime(response.data);
       setPendingTime(false);
     } catch (error) {
@@ -41,7 +41,7 @@ function Dashboard() {
       
       setPending(true);
       const dataToSend = {hours : numberOfHours}
-      const response = await Axios.post(`http://localhost:3000/api/users/addHours/${user._id}`, dataToSend);
+      const response = await Axios.post(`https://screen-wise-ntsk.vercel.app/api/users/addHours/${user._id}`, dataToSend);
       setNumberOfHours(0);
       
       setPending(false);

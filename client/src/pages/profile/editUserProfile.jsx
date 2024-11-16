@@ -19,7 +19,7 @@ function EditUserProfile () {
   const setNewBio = async () => {
     try {
       const dataToSend = {newBio : bio}
-      const bioData = await Axios.put(`http://localhost:3000/api/users/changeBio/${user._id}`, dataToSend);
+      const bioData = await Axios.put(`https://screen-wise-ntsk.vercel.app/api/users/changeBio/${user._id}`, dataToSend);
     } catch (error) {
       
     }
@@ -28,7 +28,7 @@ function EditUserProfile () {
   const setNewUsername = async () => {
     try {
       const dataToSend = {newUsername : username}
-      const usernameData = await Axios.put(`http://localhost:3000/api/users/changeUsername/${user._id}`, dataToSend);
+      const usernameData = await Axios.put(`https://screen-wise-ntsk.vercel.app/api/users/changeUsername/${user._id}`, dataToSend);
     } catch (error) {
       
     }
@@ -39,7 +39,7 @@ function EditUserProfile () {
     try {
       setNewBio();
       setNewUsername();
-      window.location.href = 'http://localhost:5173/profile';
+      window.location.href = 'https://screen-wise.vercel.app/profile';
     } catch (error) {
 
     }

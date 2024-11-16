@@ -7,13 +7,13 @@ const router = express.Router();
 // login page
 // get
 router.get('login', (req, res) => {
-  res.render('http://localhost:5173/login');
+  res.render('https://screen-wise.vercel.app/login');
 });
 
 // Dashboard
 // get
 router.get('dashboard', isAuthenticated, (req, res) => {
-  res.render('http://localhost:5173/dashboard');
+  res.render('https://screen-wise.vercel.app/dashboard');
 });
 
 export default router;

@@ -13,7 +13,7 @@ function FriendsAll() {
 
   const getFriendsList = async () => {
     try {
-      const response = await Axios.get(`http://localhost:3000/api/users/getFriendsList/${user._id}`);
+      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getFriendsList/${user._id}`);
       setFriendsList(response.data.arrayOfUserModels);
     } catch (error) {
       

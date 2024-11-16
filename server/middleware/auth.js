@@ -4,7 +4,7 @@ const isAuthenticated = (req,res, next) => {
   if(req.isAuthenticated()){
     return next();
   } else {
-    res.redirect('http://localhost:5173/login');
+    res.redirect('https://screen-wise.vercel.app/login');
   }
 }
 

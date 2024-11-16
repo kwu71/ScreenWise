@@ -33,7 +33,7 @@ function FriendsAdd() {
 
   const getFriendId = async () => {
     try {
-      const response = await Axios.get(`http://localhost:3000/api/users/getFriendId/${user._id}`);
+      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getFriendId/${user._id}`);
       console.log(response.data.friendId);
       setID(response.data.friendId);
     } catch (error) {
