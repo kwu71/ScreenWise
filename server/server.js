@@ -24,9 +24,15 @@ app.use(express.json());
 app.use(cors({
   origin: 'https://screen-wise.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   credentials: true
 }));
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+    crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" }
+  })
+);
 app.use(morgan('dev'));
 
 // Session Setup
