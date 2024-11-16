@@ -16,7 +16,7 @@
       "source": "/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "https://screen-wise.vercel.app" } // Your frontend URL
+        { "key": "Access-Control-Allow-Origin", "value": "https://screen-wise.vercel.app" }
       ]
     }
   ]
