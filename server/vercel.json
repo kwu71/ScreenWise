@@ -8,19 +8,6 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "server.js" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "https://screen-wise.vercel.app" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization, X-Requested-With" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "cross-origin" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin-allow-popups" }
-      ]
-    }
   ]
 }
 
