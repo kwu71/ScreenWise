@@ -12,7 +12,7 @@ function Leaderboard() {
 
   const fetchFriendData = async () => {
     try {
-      const leaderboardData = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getLeaderboard/${user._id}`);
+      const leaderboardData = await Axios.get(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/getLeaderboard/${user._id}`);
       setLeaderboardFriends(leaderboardData.data); 
       console.log(leaderboardFriends);
     } catch (error) {

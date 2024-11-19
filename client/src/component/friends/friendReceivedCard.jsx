@@ -12,7 +12,7 @@ function friendCard(props) {
     try {
       const dataToSend = {friendID : props.id}
       console.log(dataToSend)
-      const response = await Axios.delete(`https://screen-wise-ntsk.vercel.app/api/users/deleteFriendReceived/${user._id}`, {
+      const response = await Axios.delete(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/deleteFriendReceived/${user._id}`, {
         data: dataToSend
       });
       props.onDelete();
@@ -29,7 +29,7 @@ function friendCard(props) {
     try {
       await handleAddDelete();
       const dataToSend = {friendID : props.id}
-      const response = await Axios.post(`https://screen-wise-ntsk.vercel.app/api/users/addFriendReceived/${user._id}`, dataToSend);
+      const response = await Axios.post(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/addFriendReceived/${user._id}`, dataToSend);
     } catch (error) {
       
     }

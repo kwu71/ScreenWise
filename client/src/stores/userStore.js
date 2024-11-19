@@ -8,7 +8,7 @@ const useUserStore = create((set) => ({
 
   fetchUser: async () => {
     try {
-      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/auth/profile`, { withCredentials: true });
+      const response = await Axios.get(`https://screenwise-backend-1648094cfb48.herokuapp.com/auth/profile`, { withCredentials: true });
       set({user: response.data, isLoading: false });
     } catch (error) {
       console.error('Error fetching user profile', error);
@@ -18,7 +18,7 @@ const useUserStore = create((set) => ({
 
   logout: async () => {
     try {
-      const serverResponse = await Axios.get(`https://screen-wise-ntsk.vercel.app/auth/logout`, { withCredentials: true });
+      const serverResponse = await Axios.get(`https://screenwise-backend-1648094cfb48.herokuapp.com/auth/logout`, { withCredentials: true });
       if(serverResponse.status === 200){
         set({user: null});
       }

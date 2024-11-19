@@ -21,7 +21,7 @@ function FriendsAdd() {
     try {
       setPending(true);
       const dataToSend = {friendID : friendUsername}
-      const response = await Axios.post(`http://localhost:3000/api/users/addFriend/${user._id}`, dataToSend);
+      const response = await Axios.post(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/addFriend/${user._id}`, dataToSend);
       setUsername('');
       setPending(false);
       getScreenTime();
@@ -33,7 +33,7 @@ function FriendsAdd() {
 
   const getFriendId = async () => {
     try {
-      const response = await Axios.get(`https://screen-wise-ntsk.vercel.app/api/users/getFriendId/${user._id}`);
+      const response = await Axios.get(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/getFriendId/${user._id}`);
       console.log(response.data.friendId);
       setID(response.data.friendId);
     } catch (error) {

@@ -19,7 +19,7 @@ function EditUserProfile () {
   const setNewBio = async () => {
     try {
       const dataToSend = {newBio : bio}
-      const bioData = await Axios.put(`https://screen-wise-ntsk.vercel.app/api/users/changeBio/${user._id}`, dataToSend);
+      const bioData = await Axios.put(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/changeBio/${user._id}`, dataToSend);
     } catch (error) {
       
     }
@@ -28,7 +28,7 @@ function EditUserProfile () {
   const setNewUsername = async () => {
     try {
       const dataToSend = {newUsername : username}
-      const usernameData = await Axios.put(`https://screen-wise-ntsk.vercel.app/api/users/changeUsername/${user._id}`, dataToSend);
+      const usernameData = await Axios.put(`https://screenwise-backend-1648094cfb48.herokuapp.com/api/users/changeUsername/${user._id}`, dataToSend);
     } catch (error) {
       
     }
